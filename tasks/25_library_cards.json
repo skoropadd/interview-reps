@@ -1,0 +1,520 @@
+[
+  {
+    "id": "ex_01",
+    "type": "theory",
+    "title": "Randomisation unit vs analysis unit: what is each, and what goes wrong",
+    "front": "Randomisation unit vs analysis unit: what is each, and what goes wrong when they differ?",
+    "back": "Randomisation unit = what gets assigned to A or B (usually the user). Analysis unit = what the metric is counted over (user, session, page view).\nIf you randomise by user but analyse per session or click, the rows are not independent: one user's sessions move together. The naive SE (standard error) is too small and false positives go up.\nFix: aggregate to the randomisation unit first, or use the delta method or a bootstrap over users.",
+    "tags": [
+      "stats"
+    ],
+    "topic": "experiments",
+    "track": "stats",
+    "status": "active",
+    "source": "written for this library; question idea from public interview lists (see SOURCES.md)"
+  },
+  {
+    "id": "ex_02",
+    "type": "theory",
+    "title": "Novelty effect and primacy effect: what are they, and how do you check",
+    "front": "Novelty effect and primacy effect: what are they, and how do you check for them?",
+    "back": "Novelty: users click the new thing because it is new, so the lift is inflated at first and fades.\nPrimacy (change aversion): existing users dislike the change at first, so the lift starts low and recovers.\nCheck: plot the effect by day since first exposure, and compare new users with existing users (new users have neither effect). Run long enough for the curve to flatten, at least one or two full weeks.",
+    "tags": [
+      "stats"
+    ],
+    "topic": "experiments",
+    "track": "stats",
+    "status": "active",
+    "source": "written for this library; question idea from public interview lists (see SOURCES.md)"
+  },
+  {
+    "id": "ex_03",
+    "type": "theory",
+    "title": "Guardrail metric vs primary metric vs north-star metric?",
+    "front": "Guardrail metric vs primary metric vs north-star metric?",
+    "back": "Primary: the one metric the test is powered on and decided by.\nGuardrails: metrics that must not get worse while you chase the primary one, such as cancellations, latency, complaints, revenue per user. A win on the primary with a broken guardrail is not a launch.\nNorth star: the long-run company metric. It usually moves too slowly to test on, so the primary metric is a faster proxy for it.",
+    "tags": [
+      "stats"
+    ],
+    "topic": "experiments",
+    "track": "stats",
+    "status": "active",
+    "source": "written for this library; question idea from public interview lists (see SOURCES.md)"
+  },
+  {
+    "id": "ex_04",
+    "type": "theory",
+    "title": "Multi-armed bandit vs A/B test: the difference, and when do you choose",
+    "front": "Multi-armed bandit vs A/B test: the difference, and when do you choose each?",
+    "back": "A/B test: fixed split for the whole run, then decide. Clean estimate of the effect with a confidence interval.\nBandit: shifts traffic toward the better arm while running (e.g. Thompson sampling, epsilon-greedy), so less traffic is wasted on losers.\nUse a bandit for short-lived choices where regret matters more than learning (headlines, promotions). Use an A/B test when you need a trustworthy effect size, guardrails and a lasting decision.",
+    "tags": [
+      "stats"
+    ],
+    "topic": "experiments",
+    "track": "stats",
+    "status": "active",
+    "source": "written for this library; question idea from public interview lists (see SOURCES.md)"
+  },
+  {
+    "id": "ex_05",
+    "type": "theory",
+    "title": "Regression to the mean: what is it, and how does it fool an analysis w",
+    "front": "Regression to the mean: what is it, and how does it fool an analysis without a control group?",
+    "back": "Units picked because they were extreme (worst stores, top spenders last month) will on average be closer to normal next time, even if you do nothing. Part of the extreme value was luck.\nSo 'we targeted the worst 10% and they improved' proves nothing.\nFix: a randomised control group drawn from the same extreme units. Both groups regress, and the difference is the effect.",
+    "tags": [
+      "stats"
+    ],
+    "topic": "experiments",
+    "track": "stats",
+    "status": "active",
+    "source": "written for this library; question idea from public interview lists (see SOURCES.md)"
+  },
+  {
+    "id": "ex_06",
+    "type": "theory",
+    "title": "When should you NOT run an A/B test?",
+    "front": "When should you NOT run an A/B test?",
+    "back": "- Too little traffic to detect any effect you would care about.\n- The change cannot be withheld: legal or safety fixes, obvious bugs.\n- Units interfere and cannot be separated, such as a marketplace or pricing visible to all (use geo or switchback designs).\n- The decision is already made whatever the result.\n- The effect only shows over months and no short-term proxy exists.\nThen say what you would do instead: a quasi-experiment, a staged rollout with monitoring, or a holdout.",
+    "tags": [
+      "stats"
+    ],
+    "topic": "experiments",
+    "track": "stats",
+    "status": "active",
+    "source": "written for this library; question idea from public interview lists (see SOURCES.md)"
+  },
+  {
+    "id": "ex_07",
+    "type": "theory",
+    "title": "How do you measure the long-term effect of a feature when tests run fo",
+    "front": "How do you measure the long-term effect of a feature when tests run for two weeks?",
+    "back": "Long-term holdout: keep a small share of users (e.g. 1 to 5%) without the feature for months and compare.\nAlso: track cohorts by first-exposure date to see whether the lift fades, and use a surrogate metric that is known to predict the long-run outcome.\nSay the trade-off: a holdout costs those users the feature and adds engineering work.",
+    "tags": [
+      "stats"
+    ],
+    "topic": "experiments",
+    "track": "stats",
+    "status": "active",
+    "source": "written for this library; question idea from public interview lists (see SOURCES.md)"
+  },
+  {
+    "id": "ex_08",
+    "type": "theory",
+    "title": "Heterogeneous treatment effects: what are they, and what is the trap w",
+    "front": "Heterogeneous treatment effects: what are they, and what is the trap when you slice results by segment?",
+    "back": "The treatment helps some groups and hurts others, so the average hides it (e.g. flat overall, +3% on mobile, -3% on desktop).\nTrap: slicing by many segments after the fact is multiple testing. With 20 slices, one will look significant by chance.\nDo it properly: name the segments before the test, correct for the number of comparisons, and confirm a surprising segment result in a follow-up test.",
+    "tags": [
+      "stats"
+    ],
+    "topic": "experiments",
+    "track": "stats",
+    "status": "active",
+    "source": "written for this library; question idea from public interview lists (see SOURCES.md)"
+  },
+  {
+    "id": "ex_09",
+    "type": "theory",
+    "title": "Sequential testing: what problem does it solve, and what does it cost?",
+    "front": "Sequential testing: what problem does it solve, and what does it cost?",
+    "back": "Problem: looking at a fixed-sample test every day and stopping at the first p below 0.05 pushes the false positive rate far above 5%.\nSequential designs (group sequential with alpha spending, or always-valid p-values) raise the bar at each look so the overall rate stays at 5%.\nCost: for the same final sample size you have slightly less power. Gain: you can stop early for a clear win or clear harm.",
+    "tags": [
+      "stats"
+    ],
+    "topic": "experiments",
+    "track": "stats",
+    "status": "active",
+    "source": "written for this library; question idea from public interview lists (see SOURCES.md)"
+  },
+  {
+    "id": "ex_10",
+    "type": "theory",
+    "title": "Winner's curse in A/B testing: why do shipped wins look smaller afterw",
+    "front": "Winner's curse in A/B testing: why do shipped wins look smaller afterwards?",
+    "back": "You ship the tests that crossed significance. Among those, the observed lift is the true lift plus noise that happened to be positive, so the estimates are biased upward, most of all in low-power tests.\nSo the sum of launched lifts overstates the real total.\nFixes: more power, a holdout that measures the combined effect of everything shipped, or shrinking the estimates.",
+    "tags": [
+      "stats"
+    ],
+    "topic": "experiments",
+    "track": "stats",
+    "status": "active",
+    "source": "written for this library; question idea from public interview lists (see SOURCES.md)"
+  },
+  {
+    "id": "dl_01",
+    "type": "theory",
+    "title": "Backpropagation in plain words: what does it compute, and how?",
+    "front": "Backpropagation in plain words: what does it compute, and how?",
+    "back": "It computes the gradient of the loss with respect to every weight.\nForward pass: push the input through the layers and get the loss. Backward pass: apply the chain rule from the loss back to the first layer, reusing each layer's result for the one before it.\nThe optimiser then moves each weight a small step against its gradient. Backpropagation finds the direction; the optimiser takes the step.",
+    "tags": [
+      "dl"
+    ],
+    "topic": "dl-basics",
+    "track": "dl",
+    "status": "active",
+    "source": "written for this library; question idea from public interview lists (see SOURCES.md)"
+  },
+  {
+    "id": "dl_02",
+    "type": "theory",
+    "title": "Why does a neural network need non-linear activation functions, and wh",
+    "front": "Why does a neural network need non-linear activation functions, and why ReLU over sigmoid?",
+    "back": "Without a non-linearity, stacked linear layers collapse into one linear layer, so depth adds nothing.\nSigmoid and tanh flatten out at both ends, so their gradient is near zero there and deep networks stop learning (vanishing gradients).\nReLU, max(0, x), has gradient 1 for positive inputs and is cheap. Its weakness: a unit stuck below zero gets no gradient (a dead unit); Leaky ReLU and GELU soften that.",
+    "tags": [
+      "dl"
+    ],
+    "topic": "dl-basics",
+    "track": "dl",
+    "status": "active",
+    "source": "written for this library; question idea from public interview lists (see SOURCES.md)"
+  },
+  {
+    "id": "dl_03",
+    "type": "theory",
+    "title": "Why can't you initialise all weights of a neural network to zero?",
+    "front": "Why can't you initialise all weights of a neural network to zero?",
+    "back": "Every unit in a layer would compute the same output and receive the same gradient, so they stay identical forever: the layer acts like one unit (the symmetry is never broken).\nUse small random values scaled to the layer size (Xavier/Glorot for tanh, He for ReLU), so signals neither die out nor blow up as they pass through the layers.",
+    "tags": [
+      "dl"
+    ],
+    "topic": "dl-basics",
+    "track": "dl",
+    "status": "active",
+    "source": "written for this library; question idea from public interview lists (see SOURCES.md)"
+  },
+  {
+    "id": "dl_04",
+    "type": "theory",
+    "title": "SGD with momentum vs Adam: what does each add to plain gradient descen",
+    "front": "SGD with momentum vs Adam: what does each add to plain gradient descent?",
+    "back": "Momentum keeps a running average of past gradients and steps along it, so it speeds up along consistent directions and damps zig-zag.\nAdam adds a per-parameter step size: it also tracks the running average of squared gradients and divides by its square root, so rarely updated parameters get larger steps.\nAdam (or AdamW, with weight decay done properly) is the default for transformers; SGD with momentum is still common in vision.",
+    "tags": [
+      "dl"
+    ],
+    "topic": "dl-basics",
+    "track": "dl",
+    "status": "active",
+    "source": "written for this library; question idea from public interview lists (see SOURCES.md)"
+  },
+  {
+    "id": "dl_05",
+    "type": "theory",
+    "title": "Batch normalisation vs layer normalisation: what is normalised over, a",
+    "front": "Batch normalisation vs layer normalisation: what is normalised over, and which do transformers use?",
+    "back": "Batch norm: for each feature, normalise across the examples in the mini-batch. It depends on batch size and behaves differently in training and prediction.\nLayer norm: for each example, normalise across its features. No dependence on the batch.\nTransformers use layer norm, because sequences vary in length and batches can be small.",
+    "tags": [
+      "dl"
+    ],
+    "topic": "dl-basics",
+    "track": "dl",
+    "status": "active",
+    "source": "written for this library; question idea from public interview lists (see SOURCES.md)"
+  },
+  {
+    "id": "dl_06",
+    "type": "theory",
+    "title": "Residual (skip) connections: what are they and why do deep networks ne",
+    "front": "Residual (skip) connections: what are they and why do deep networks need them?",
+    "back": "The layer's output is its input plus what the layer computed: x + f(x). The layer only has to learn the change.\nThe plus gives the gradient a direct path back to early layers, so very deep networks can train without vanishing gradients.\nEvery transformer block has two: one around attention, one around the feed-forward part.",
+    "tags": [
+      "dl"
+    ],
+    "topic": "dl-basics",
+    "track": "dl",
+    "status": "active",
+    "source": "written for this library; question idea from public interview lists (see SOURCES.md)"
+  },
+  {
+    "id": "dl_07",
+    "type": "theory",
+    "title": "Softmax: what does it do, and how does it pair with cross-entropy for ",
+    "front": "Softmax: what does it do, and how does it pair with cross-entropy for multi-class problems?",
+    "back": "Softmax turns a vector of raw scores (logits) into probabilities: exponentiate each score, divide by the sum. Outputs are positive and add up to 1.\nCross-entropy loss is then minus the log of the probability given to the true class.\nBinary case: softmax over two classes is the sigmoid. Temperature divides the logits before softmax: higher = flatter distribution.",
+    "tags": [
+      "dl"
+    ],
+    "topic": "dl-basics",
+    "track": "dl",
+    "status": "active",
+    "source": "written for this library; question idea from public interview lists (see SOURCES.md)"
+  },
+  {
+    "id": "dl_08",
+    "type": "theory",
+    "title": "An embedding layer: what is it, mechanically?",
+    "front": "An embedding layer: what is it, mechanically?",
+    "back": "A lookup table: one learned row of numbers (a vector) per category or token. The input is an id, the output is that row.\nIt is the same as multiplying a one-hot vector by a weight matrix, just done as a lookup.\nThe vectors are trained with the rest of the network, so items used in similar ways end up close together. Works for words, and for merchants, countries or products in tabular models.",
+    "tags": [
+      "dl"
+    ],
+    "topic": "dl-basics",
+    "track": "dl",
+    "status": "active",
+    "source": "written for this library; question idea from public interview lists (see SOURCES.md)"
+  },
+  {
+    "id": "dl_09",
+    "type": "theory",
+    "title": "Training loss keeps falling while validation loss rises. What is happe",
+    "front": "Training loss keeps falling while validation loss rises. What is happening and what do you do?",
+    "back": "Overfitting: the network is memorising the training set.\nIn order: early stopping at the best validation loss; more data or data augmentation; stronger regularisation (dropout, weight decay); a smaller model.\nIf BOTH losses are high and flat, that is underfitting: a bigger model, longer training, or a higher learning rate.",
+    "tags": [
+      "dl"
+    ],
+    "topic": "dl-basics",
+    "track": "dl",
+    "status": "active",
+    "source": "written for this library; question idea from public interview lists (see SOURCES.md)"
+  },
+  {
+    "id": "dl_10",
+    "type": "theory",
+    "title": "RNN and LSTM: what problem did they solve, and why did transformers re",
+    "front": "RNN and LSTM: what problem did they solve, and why did transformers replace them?",
+    "back": "An RNN reads a sequence one step at a time and carries a hidden state forward, so it can handle any length. Plain RNNs forget over long distances (vanishing gradients). An LSTM adds gates that decide what to keep, write and forget, which helps.\nBoth are sequential, so they cannot be parallelised across positions, and distant tokens still interact weakly.\nA transformer lets every token attend to every other directly and processes all positions in parallel.",
+    "tags": [
+      "dl"
+    ],
+    "topic": "dl-basics",
+    "track": "dl",
+    "status": "active",
+    "source": "written for this library; question idea from public interview lists (see SOURCES.md)"
+  },
+  {
+    "id": "llm_01",
+    "type": "theory",
+    "title": "What is a token, and what does a tokenizer such as BPE (byte pair enco",
+    "front": "What is a token, and what does a tokenizer such as BPE (byte pair encoding) do?",
+    "back": "A token is the unit a language model reads and writes: a word piece, not a word. As a rule of thumb, 1 token is about three quarters of an English word.\nBPE starts from characters and repeatedly merges the most frequent adjacent pair into a new token, until the vocabulary reaches a set size. Common words become one token, rare words are split into pieces, so nothing is out of vocabulary.\nCost, speed and context limits are all counted in tokens.",
+    "tags": [
+      "genai"
+    ],
+    "topic": "llm",
+    "track": "genai",
+    "status": "active",
+    "source": "written for this library; question idea from public interview lists (see SOURCES.md)"
+  },
+  {
+    "id": "llm_02",
+    "type": "theory",
+    "title": "Text embeddings: what are they, and how do you compare two of them?",
+    "front": "Text embeddings: what are they, and how do you compare two of them?",
+    "back": "An embedding is a vector that represents the meaning of a text, produced by an embedding model. Texts with similar meaning get vectors that point in similar directions.\nCompare with cosine similarity: the dot product divided by the two lengths, from -1 to 1. If the vectors are normalised to length 1, the dot product gives the same ranking.\nUses: semantic search, clustering, retrieval for RAG, features for a classical model.",
+    "tags": [
+      "genai"
+    ],
+    "topic": "llm",
+    "track": "genai",
+    "status": "active",
+    "source": "written for this library; question idea from public interview lists (see SOURCES.md)"
+  },
+  {
+    "id": "llm_03",
+    "type": "theory",
+    "title": "Self-attention needs positional encoding. Why?",
+    "front": "Self-attention needs positional encoding. Why?",
+    "back": "Attention treats its input as a set: it compares every token with every other and has no idea of order. 'Dog bites man' and 'man bites dog' would look the same.\nPositional encoding adds position information to each token's vector, either fixed sine and cosine patterns, learned position vectors, or rotations applied inside attention (RoPE).",
+    "tags": [
+      "genai"
+    ],
+    "topic": "llm",
+    "track": "genai",
+    "status": "active",
+    "source": "written for this library; question idea from public interview lists (see SOURCES.md)"
+  },
+  {
+    "id": "llm_04",
+    "type": "theory",
+    "title": "Encoder-only, decoder-only, encoder-decoder transformers: one example ",
+    "front": "Encoder-only, decoder-only, encoder-decoder transformers: one example and the typical task for each.",
+    "back": "Encoder-only (BERT): reads the whole text in both directions. For understanding: classification, embeddings, retrieval.\nDecoder-only (GPT): each token sees only the tokens before it (causal mask) and predicts the next one. For generation; today's chat models.\nEncoder-decoder (T5, the original transformer): the encoder reads the input, the decoder writes the output while attending to it. For translation and summarisation.",
+    "tags": [
+      "genai"
+    ],
+    "topic": "llm",
+    "track": "genai",
+    "status": "active",
+    "source": "written for this library; question idea from public interview lists (see SOURCES.md)"
+  },
+  {
+    "id": "llm_05",
+    "type": "theory",
+    "title": "Temperature, top-k and top-p: what does each control when a model gene",
+    "front": "Temperature, top-k and top-p: what does each control when a model generates text?",
+    "back": "The model outputs a probability for every possible next token.\nTemperature rescales the scores before softmax: low = sharper and more repeatable, high = flatter and more varied. Zero means always take the most likely token.\nTop-k: sample only from the k most likely tokens.\nTop-p (nucleus): sample from the smallest set whose probabilities add up to p.\nFor extraction or classification use low temperature; for drafting text, higher.",
+    "tags": [
+      "genai"
+    ],
+    "topic": "llm",
+    "track": "genai",
+    "status": "active",
+    "source": "written for this library; question idea from public interview lists (see SOURCES.md)"
+  },
+  {
+    "id": "llm_06",
+    "type": "theory",
+    "title": "The context window: what is it and why is it limited?",
+    "front": "The context window: what is it and why is it limited?",
+    "back": "The maximum number of tokens the model can take in at once: the prompt, the documents, the history and the answer together.\nLimited because self-attention compares every token with every other, so compute and memory grow with the square of the length, and because the model was trained on sequences up to a fixed length.\nIn practice quality also drops for facts buried in the middle of a very long prompt.",
+    "tags": [
+      "genai"
+    ],
+    "topic": "llm",
+    "track": "genai",
+    "status": "active",
+    "source": "written for this library; question idea from public interview lists (see SOURCES.md)"
+  },
+  {
+    "id": "llm_07",
+    "type": "theory",
+    "title": "Pre-training, fine-tuning, and alignment (RLHF): what happens at each ",
+    "front": "Pre-training, fine-tuning, and alignment (RLHF): what happens at each stage of building a chat model?",
+    "back": "Pre-training: predict the next token on a huge amount of text. Self-supervised, no labels. Gives general language ability and knowledge.\nSupervised fine-tuning (instruction tuning): train on prompt and good-answer pairs so it follows instructions.\nAlignment (RLHF, reinforcement learning from human feedback, or DPO): people rank answers, and the model is tuned toward the preferred ones.",
+    "tags": [
+      "genai"
+    ],
+    "topic": "llm",
+    "track": "genai",
+    "status": "active",
+    "source": "written for this library; question idea from public interview lists (see SOURCES.md)"
+  },
+  {
+    "id": "llm_08",
+    "type": "theory",
+    "title": "Hallucination: what is it, and how do you reduce it in an application?",
+    "front": "Hallucination: what is it, and how do you reduce it in an application?",
+    "back": "The model states something fluent and confident that is false or not supported by its sources. It predicts likely text; it does not look facts up.\nReduce it: ground the answer in retrieved documents (RAG) and tell the model to answer only from them and to say when the answer is not there; ask for citations; low temperature; check the output against the sources with a second pass.\nMeasure it on a test set; do not judge by a few examples.",
+    "tags": [
+      "genai"
+    ],
+    "topic": "llm",
+    "track": "genai",
+    "status": "active",
+    "source": "written for this library; question idea from public interview lists (see SOURCES.md)"
+  },
+  {
+    "id": "llm_09",
+    "type": "theory",
+    "title": "Walk through a RAG pipeline: the steps at indexing time and at questio",
+    "front": "Walk through a RAG pipeline: the steps at indexing time and at question time.",
+    "back": "Indexing: split documents into chunks, embed each chunk, store the vectors with metadata in a vector index.\nQuestion time: embed the question, retrieve the most similar chunks, optionally re-rank them, put the best ones in the prompt with the question, generate an answer with citations.\nMost failures are retrieval failures: the right chunk never reached the prompt. Check retrieval before blaming the model.",
+    "tags": [
+      "genai"
+    ],
+    "topic": "llm",
+    "track": "genai",
+    "status": "active",
+    "source": "written for this library; question idea from public interview lists (see SOURCES.md)"
+  },
+  {
+    "id": "llm_10",
+    "type": "theory",
+    "title": "Chunking for RAG: why chunk, and what drives the chunk size?",
+    "front": "Chunking for RAG: why chunk, and what drives the chunk size?",
+    "back": "Why: an embedding of a whole document blurs its topics, and the prompt has limited room.\nSmall chunks: precise matches, but they can lose the context needed to answer. Large chunks: more context, but noisier matches and fewer fit in the prompt.\nSplit on the document's structure (headings, paragraphs) rather than a fixed character count, keep a little overlap, and pick the size by measuring retrieval on real questions.",
+    "tags": [
+      "genai"
+    ],
+    "topic": "llm",
+    "track": "genai",
+    "status": "active",
+    "source": "written for this library; question idea from public interview lists (see SOURCES.md)"
+  },
+  {
+    "id": "llm_11",
+    "type": "theory",
+    "title": "Hybrid search and re-ranking: what does each add to plain vector searc",
+    "front": "Hybrid search and re-ranking: what does each add to plain vector search?",
+    "back": "Vector search finds text with similar meaning but can miss exact terms such as product codes, names and numbers.\nHybrid search runs keyword search (BM25) alongside it and merges the two rankings, so both meaning and exact matches count.\nRe-ranking: take the top 50 or so candidates and score each together with the question using a slower, more accurate model (a cross-encoder), then keep the best few. Retrieval optimises recall; re-ranking fixes precision.",
+    "tags": [
+      "genai"
+    ],
+    "topic": "llm",
+    "track": "genai",
+    "status": "active",
+    "source": "written for this library; question idea from public interview lists (see SOURCES.md)"
+  },
+  {
+    "id": "llm_12",
+    "type": "theory",
+    "title": "How do you evaluate a RAG system? Name the metrics for retrieval and f",
+    "front": "How do you evaluate a RAG system? Name the metrics for retrieval and for the answer.",
+    "back": "Retrieval: context recall (did the chunks needed for the answer come back) and context precision (how much of what came back is relevant); recall at k on a labelled question set.\nAnswer: faithfulness (every claim is supported by the retrieved context) and answer relevance (it addresses the question).\nBuild a fixed test set of real questions with reference answers, score with an LLM as judge checked against human labels, and rerun it on every change.",
+    "tags": [
+      "genai"
+    ],
+    "topic": "llm",
+    "track": "genai",
+    "status": "active",
+    "source": "written for this library; question idea from public interview lists (see SOURCES.md)"
+  },
+  {
+    "id": "llm_13",
+    "type": "theory",
+    "title": "An AI agent vs a single LLM call: what is the difference, and what is ",
+    "front": "An AI agent vs a single LLM call: what is the difference, and what is tool calling?",
+    "back": "A single call: prompt in, text out.\nAn agent runs a loop: the model decides on an action, a tool runs it, the result goes back to the model, and it repeats until done.\nTool calling: you describe functions (name, purpose, parameters); the model returns a structured request to call one; YOUR code executes it and returns the result. The model never runs anything itself.\nAgents cost more, are slower and can compound errors, so use the simplest setup that works.",
+    "tags": [
+      "genai"
+    ],
+    "topic": "llm",
+    "track": "genai",
+    "status": "active",
+    "source": "written for this library; question idea from public interview lists (see SOURCES.md)"
+  },
+  {
+    "id": "llm_14",
+    "type": "theory",
+    "title": "Prompt injection: direct vs indirect, and how do you defend against it",
+    "front": "Prompt injection: direct vs indirect, and how do you defend against it?",
+    "back": "Direct: the user types instructions that override yours ('ignore the above and ...').\nIndirect: the instructions hide in content the model reads, such as a web page, an email or a retrieved document.\nDefences: treat everything the model reads as data, not commands; give tools the least privilege needed; require human approval for actions with side effects; filter inputs and outputs. No prompt wording alone makes it safe.",
+    "tags": [
+      "genai"
+    ],
+    "topic": "llm",
+    "track": "genai",
+    "status": "active",
+    "source": "written for this library; question idea from public interview lists (see SOURCES.md)"
+  },
+  {
+    "id": "llm_15",
+    "type": "theory",
+    "title": "Few-shot prompting and chain-of-thought: what are they and when does e",
+    "front": "Few-shot prompting and chain-of-thought: what are they and when does each help?",
+    "back": "Few-shot: put a handful of worked examples in the prompt. It helps most with format and edge cases. Pick varied examples, because the model copies their pattern, including their mistakes.\nChain-of-thought: ask the model to reason step by step before answering. It helps on multi-step problems (arithmetic, logic) and costs extra tokens and time.\nZero-shot (instructions only) is the baseline to beat.",
+    "tags": [
+      "genai"
+    ],
+    "topic": "llm",
+    "track": "genai",
+    "status": "active",
+    "source": "written for this library; question idea from public interview lists (see SOURCES.md)"
+  },
+  {
+    "id": "llm_16",
+    "type": "theory",
+    "title": "Quantization of a model: what is it and what do you trade?",
+    "front": "Quantization of a model: what is it and what do you trade?",
+    "back": "Store the weights with fewer bits, e.g. 8-bit or 4-bit integers in place of 16- or 32-bit floats.\nGain: a model several times smaller that fits on cheaper hardware and often runs faster.\nCost: a small loss in quality, usually minor at 8 bits and noticeable at very low bit widths.\nQLoRA combines the two ideas: fine-tune small LoRA matrices on top of a 4-bit base model.",
+    "tags": [
+      "genai"
+    ],
+    "topic": "llm",
+    "track": "genai",
+    "status": "active",
+    "source": "written for this library; question idea from public interview lists (see SOURCES.md)"
+  },
+  {
+    "id": "llm_17",
+    "type": "theory",
+    "title": "You changed a prompt and accuracy on your test set went from 78% to 81",
+    "front": "You changed a prompt and accuracy on your test set went from 78% to 81%. How do you know it is real?",
+    "back": "Run both prompts on the SAME questions and compare them as pairs, because most answers are unchanged and the pairing removes that noise.\nLook at the questions where they disagree: McNemar's test, or a bootstrap over questions for a confidence interval on the difference.\nWith 200 questions, 3 points is 6 questions, well inside noise. Also rerun a few times, since outputs vary between runs. This is an A/B test: same logic, same traps.",
+    "tags": [
+      "genai"
+    ],
+    "topic": "llm",
+    "track": "genai",
+    "status": "active",
+    "source": "written for this library; question idea from public interview lists (see SOURCES.md)"
+  }
+]
