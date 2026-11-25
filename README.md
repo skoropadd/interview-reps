@@ -72,3 +72,7 @@ python scripts/reps.py flag py_153 off       # switch one card off (or on, or de
 ```
 
 Default topic weights are in `config/topics.json`. Your own flags are saved in `profile/focus.json`, which is personal and not committed.
+
+## Licence
+
+MIT. See `LICENSE`.
