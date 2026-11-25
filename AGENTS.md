@@ -30,6 +30,7 @@ Never put personal details in the system layer.
 | "progress", "streak", "how am I doing" | `modes/progress.md` |
 | "add tasks", "new problems", "make a variant" | `modes/add.md` |
 | "import my Anki cards" | `modes/anki.md` |
+| "fast pass", "triage my cards", "I know most of these" | `modes/triage.md` |
 | Anything about changing the tool itself | `modes/develop.md` |
 
 ## Commands
@@ -41,5 +42,7 @@ python scripts/reps.py check <task_id>
 python scripts/reps.py record <task_id> clean|errors|failed --note "what went wrong"
 python scripts/reps.py progress --json
 python scripts/reps.py import-anki <file>
+python scripts/reps.py triage [--topic T] [--known ID ...] [--weak ID ...]
+python scripts/reps.py set theory_per_day 10
 python tests/test_reps.py
 ```

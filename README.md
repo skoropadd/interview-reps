@@ -73,6 +73,16 @@ python scripts/reps.py flag py_153 off       # switch one card off (or on, or de
 
 Default topic weights are in `config/topics.json`. Your own flags are saved in `profile/focus.json`, which is personal and not committed.
 
+## Session size and the fast pass
+
+```
+python scripts/reps.py set theory_per_day 10   # cards per session (default 5)
+python scripts/reps.py triage                  # list unseen cards; mark with --known / --weak
+```
+
+If you already know many cards, say "fast pass" in Claude Code: you sort unseen cards into known and weak in batches of 15.
+Known cards come back spread over the following weeks; weak ones come first in your daily sessions.
+
 ## Licence
 
 MIT. See `LICENSE`.

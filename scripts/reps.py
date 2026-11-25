@@ -33,6 +33,7 @@ PROGRESS = DATA / "progress.json"
 LOG = DATA / "log.jsonl"
 TODAY = DATA / "today.json"
 BUG_LOG = DATA / "bug-log.md"
+TRIAGE = DATA / "triage.json"        # cards marked "weak" in the fast pass: they come first as new cards
 PROFILE = Path(os.environ.get("REPS_PROFILE_DIR", ROOT / "profile"))
 FOCUS = PROFILE / "focus.json"      # personal flags: which topics and cards are in the rotation
 TOPIC_DEFAULTS = ROOT / "config" / "topics.json"
@@ -44,7 +45,7 @@ MASTERED_BOX = 4
 # The main coding task by weekday (Monday = 0).
 WEEK_PLAN = {0: "pattern", 1: "oop", 2: "pattern", 3: "debug", 4: "pattern", 5: "free", 6: "free"}
 CASE_DAY = 4            # one case card on Fridays
-THEORY_PER_DAY = 5
+THEORY_PER_DAY = 5      # default; override with: reps.py set theory_per_day 10
 THEORY_REVIEWS = 3     # at most this many review cards before new ones are added
 
 TYPES = ("warmup", "theory", "oop", "debug", "pattern", "case")
@@ -132,6 +133,14 @@ def is_due(task, progress, day):
     return state is None or state["due"] <= day.isoformat()
 
 
+def settings():
+    """Session sizes: defaults overlaid with profile/focus.json -> settings."""
+    personal = load_json(FOCUS, {}).get("settings", {})
+    per_day = int(personal.get("theory_per_day", THEORY_PER_DAY))
+    reviews = int(personal.get("theory_reviews", max(1, round(per_day * 0.6))))
+    return {"theory_per_day": per_day, "theory_reviews": min(reviews, per_day)}
+
+
 def group(task):
     return task.get("topic") or task.get("pattern") or task["type"]
 
@@ -139,6 +148,8 @@ def group(task):
 def pick_session(tasks, progress, day):
     by_type = {name: [t for t in tasks if t["type"] == name] for name in TYPES}
     chosen = set()
+    weak = set(load_json(TRIAGE, {}).get("weak", []))
+    size = settings()
 
     def reviews(kind):
         """Seen tasks that are due again, oldest due date first."""
@@ -150,7 +161,8 @@ def pick_session(tasks, progress, day):
         """Tasks never done, in curriculum order. Theory cards: heaviest topic first."""
         pool = [t for t in by_type[kind] if t["id"] not in progress and t["id"] not in chosen]
         if kind == "theory":
-            return sorted(pool, key=lambda t: (-t["_weight"], t["_order"]))
+            # Cards marked weak in the fast pass first, then the heaviest topic.
+            return sorted(pool, key=lambda t: (t["id"] not in weak, -t["_weight"], t["_order"]))
         if kind == "pattern":
             # Rotate through the topics, so matrix, hash map, ML coding ... take turns.
             done = Counter(group(t) for t in by_type[kind] if t["id"] in progress)
@@ -172,9 +184,9 @@ def pick_session(tasks, progress, day):
     session["warmup"] = [t["id"] for t in (take(reviews("warmup")) or take(fresh("warmup")))]
 
     # Theory: up to THEORY_REVIEWS reviews, filled with new cards, then more reviews if short.
-    cards = take(reviews("theory"), THEORY_REVIEWS)
-    cards += take(fresh("theory"), THEORY_PER_DAY - len(cards))
-    cards += take(reviews("theory"), THEORY_PER_DAY - len(cards))
+    cards = take(reviews("theory"), size["theory_reviews"])
+    cards += take(fresh("theory"), size["theory_per_day"] - len(cards))
+    cards += take(reviews("theory"), size["theory_per_day"] - len(cards))
     session["theory"] = [t["id"] for t in cards]
 
     # Main task: new material of today's type; fall back to other types, then to reviews.
@@ -416,6 +428,64 @@ def cmd_import_anki(args):
     print(f"Imported {added} new card(s) into {out.relative_to(ROOT)} ({len(existing)} in total).")
 
 
+def cmd_triage(args):
+    """The fast pass over theory cards never seen before.
+    triage [--topic T] [--limit N]   list the next unseen cards (fronts only)
+    triage --known ID ...            you know these: box 3, coming back spread over the next weeks
+    triage --weak ID ...             you don't: they stay new and jump the queue"""
+    tasks = [t for t in load_tasks() if t["type"] == "theory"]
+    index = {t["id"]: t for t in tasks}
+    progress = load_json(PROGRESS, {})
+    triage = load_json(TRIAGE, {"weak": []})
+    day = today_date(args)
+    for card_id in (args.known or []) + (args.weak or []):
+        if card_id not in index:
+            sys.exit(f"No theory card in the rotation with id {card_id!r}.")
+    if args.known or args.weak:
+        spread = sum(1 for state in progress.values() if state.get("last_result") == "known" and state["due"] > day.isoformat())
+        added = 0
+        for card_id in args.known or []:
+            if card_id in progress:
+                continue
+            due = day + timedelta(days=INTERVALS[3] + spread // 5)     # about five known cards come back per day
+            progress[card_id] = {"box": 3, "seen": 0, "last": day.isoformat(), "due": due.isoformat(), "last_result": "known"}
+            spread += 1
+            added += 1
+        triage["weak"] = sorted(set(triage["weak"]) | set(args.weak or []) - set(progress))
+        save_json(PROGRESS, progress)
+        save_json(TRIAGE, triage)
+        if TODAY.exists():
+            TODAY.unlink()
+        print(f"Marked {added} known and {len(args.weak or [])} weak.")
+    unseen = [t for t in tasks if t["id"] not in progress and t["id"] not in triage["weak"]]
+    unseen.sort(key=lambda t: (-t["_weight"], t.get("topic", ""), t["_order"]))
+    pool = [t for t in unseen if not args.topic or t.get("topic") == args.topic]
+    batch = pool[:args.limit]
+    summary = {"left_to_triage": len(unseen), "known": sum(1 for v in progress.values() if v.get("last_result") == "known"),
+               "weak": len(triage["weak"])}
+    if args.json:
+        print(json.dumps({"summary": summary, "cards": [{"id": t["id"], "topic": t.get("topic"), "front": t["front"]} for t in batch]},
+                         indent=2, ensure_ascii=False))
+        return
+    for number, t in enumerate(batch, start=1):
+        front = " ".join(t["front"].split())
+        print(f"{number:>2}. {t['id']}  [{t.get('topic')}]  {front[:110]}")
+    print(f"Left to triage: {summary['left_to_triage']}   known: {summary['known']}   weak: {summary['weak']}")
+
+
+def cmd_set(args):
+    if args.name not in ("theory_per_day", "theory_reviews"):
+        sys.exit("Settings: theory_per_day, theory_reviews")
+    if not args.value.isdigit() or int(args.value) < 1:
+        sys.exit("The value must be a whole number, 1 or more.")
+    focus = load_json(FOCUS, {})
+    focus.setdefault("settings", {})[args.name] = int(args.value)
+    save_json(FOCUS, focus)
+    if TODAY.exists():
+        TODAY.unlink()
+    print(f"{args.name} = {args.value}. Now: {settings()}")
+
+
 def cmd_library(args):
     """Every card and task by track and topic, with how many are in the rotation."""
     rows = {}
@@ -498,6 +568,20 @@ def main():
     p = sub.add_parser("import-anki", help="import an Anki text export as theory cards")
     p.add_argument("file")
     p.set_defaults(func=cmd_import_anki)
+
+    p = sub.add_parser("triage", help="fast pass over unseen theory cards: list, --known, --weak")
+    p.add_argument("--topic")
+    p.add_argument("--limit", type=int, default=15)
+    p.add_argument("--known", nargs="*", metavar="ID")
+    p.add_argument("--weak", nargs="*", metavar="ID")
+    p.add_argument("--json", action="store_true")
+    p.add_argument("--date", help="pretend today is YYYY-MM-DD (testing)")
+    p.set_defaults(func=cmd_triage)
+
+    p = sub.add_parser("set", help="personal session size: set theory_per_day 10")
+    p.add_argument("name")
+    p.add_argument("value")
+    p.set_defaults(func=cmd_set)
 
     p = sub.add_parser("library", help="cards and tasks per topic: in rotation, parked, off")
     p.add_argument("--json", action="store_true")

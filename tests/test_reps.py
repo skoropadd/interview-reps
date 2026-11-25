@@ -12,7 +12,8 @@ from _runner import run  # noqa: E402
 
 
 def reps(tmp, *args):
-    env = dict(os.environ, REPS_DATA_DIR=str(Path(tmp) / "data"), REPS_WORK_DIR=str(Path(tmp) / "work"))
+    env = dict(os.environ, REPS_DATA_DIR=str(Path(tmp) / "data"), REPS_WORK_DIR=str(Path(tmp) / "work"),
+               REPS_PROFILE_DIR=str(Path(tmp) / "profile"))
     out = subprocess.run([sys.executable, str(ROOT / "scripts" / "reps.py"), *args],
                          env=env, capture_output=True, text=True)
     return out
@@ -84,6 +85,26 @@ def test_check_runs_the_task_tests():
         solution = (ROOT / "solutions" / "oop_01_bank_account.py").read_text()
         (Path(tmp) / "work" / "oop_01_bank_account.py").write_text(solution)
         assert reps(tmp, "check", "oop_01_bank_account").returncode == 0
+
+
+def test_cards_per_day_setting_and_fast_pass():
+    with tempfile.TemporaryDirectory() as tmp:
+        assert len(session(tmp, "2026-11-26")["session"]["theory"]) == 5
+        assert reps(tmp, "set", "theory_per_day", "10").returncode == 0
+        cards = session(tmp, "2026-11-26")["session"]["theory"]
+        assert len(cards) == 10
+        listed = json.loads(reps(tmp, "triage", "--json", "--limit", "12", "--date", "2026-11-26").stdout)["cards"]
+        ids = [c["id"] for c in listed]
+        known, weak = ids[:10], ids[10:]
+        assert reps(tmp, "triage", "--known", *known, "--weak", *weak, "--date", "2026-11-26").returncode == 0
+        progress = json.loads((Path(tmp) / "data" / "progress.json").read_text())
+        assert all(progress[i]["box"] == 3 and progress[i]["last_result"] == "known" for i in known)
+        assert sorted({progress[i]["due"] for i in known}) == ["2026-11-30", "2026-12-01"]   # five a day, from day 4
+        assert not (Path(tmp) / "data" / "log.jsonl").exists()                            # self-report is not a rep
+        tomorrow = [c["id"] for c in session(tmp, "2026-11-27")["session"]["theory"]]
+        assert tomorrow[:2] == weak and not set(tomorrow) & set(known)                    # weak cards jump the queue
+        again = [c["id"] for c in json.loads(reps(tmp, "triage", "--json", "--date", "2026-11-27").stdout)["cards"]]
+        assert not set(again) & set(ids)
 
 
 run(globals())
