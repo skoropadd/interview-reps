@@ -24,5 +24,8 @@
   "mlsd": 0,
   "sql": 0,
   "trivia": 0,
-  "llm": 1
+  "llm": 1,
+  "core-design": 1,
+  "sorting": 1,
+  "dynamic-programming": 0
 }

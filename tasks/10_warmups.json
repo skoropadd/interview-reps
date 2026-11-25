@@ -82,5 +82,19 @@
     "title": "Two pointers skeleton",
     "prompt": "Write the loop skeleton for two pointers moving inwards on a sorted list, stopping when they meet.",
     "expect": "left, right = 0, len(nums) - 1; while left < right: ..."
+  },
+  {
+    "id": "warm_13",
+    "type": "warmup",
+    "title": "Build a 2D grid without aliasing",
+    "prompt": "Create a grid of 3 rows and 4 columns filled with zeros, so that changing grid[0][0] changes one cell only. Then say what goes wrong with [[0] * 4] * 3.",
+    "expect": "grid = [[0] * 4 for _ in range(3)]   # [[0] * 4] * 3 repeats ONE inner list three times, so grid[0][0] = 1 changes every row"
+  },
+  {
+    "id": "warm_14",
+    "type": "warmup",
+    "title": "Walk a matrix by row and by column",
+    "prompt": "For a matrix (list of lists): get the number of rows and columns, print every value with its (row, col), and build the list of column 2.",
+    "expect": "rows, cols = len(matrix), len(matrix[0])\nfor r in range(rows):\n    for c in range(cols):\n        print(r, c, matrix[r][c])\ncolumn = [row[2] for row in matrix]"
   }
 ]

@@ -1,0 +1,205 @@
+[
+  {
+    "id": "core_01_dynamicArray",
+    "type": "oop",
+    "title": "Design Dynamic Array",
+    "url": "https://neetcode.io/problems/dynamicArray/question",
+    "source": "NeetCode Core Skills",
+    "topic": "core-design",
+    "track": "patterns",
+    "status": "active"
+  },
+  {
+    "id": "core_02_hashTable",
+    "type": "oop",
+    "title": "Design Hash Table",
+    "url": "https://neetcode.io/problems/hashTable/question",
+    "source": "NeetCode Core Skills",
+    "topic": "core-design",
+    "track": "patterns",
+    "status": "active"
+  },
+  {
+    "id": "core_03_queue",
+    "type": "oop",
+    "title": "Design Double-ended Queue",
+    "url": "https://neetcode.io/problems/queue/question",
+    "source": "NeetCode Core Skills",
+    "topic": "core-design",
+    "track": "patterns",
+    "status": "active"
+  },
+  {
+    "id": "core_04_insertionSort",
+    "type": "pattern",
+    "title": "Insertion Sort",
+    "url": "https://neetcode.io/problems/insertionSort/question",
+    "source": "NeetCode Core Skills",
+    "topic": "sorting",
+    "track": "patterns",
+    "status": "active"
+  },
+  {
+    "id": "core_05_mergeSort",
+    "type": "pattern",
+    "title": "Merge Sort",
+    "url": "https://neetcode.io/problems/mergeSort/question",
+    "source": "NeetCode Core Skills",
+    "topic": "sorting",
+    "track": "patterns",
+    "status": "active"
+  },
+  {
+    "id": "core_06_quickSort",
+    "type": "pattern",
+    "title": "Quick Sort",
+    "url": "https://neetcode.io/problems/quickSort/question",
+    "source": "NeetCode Core Skills",
+    "topic": "sorting",
+    "track": "patterns",
+    "status": "active"
+  },
+  {
+    "id": "core_07_matrixDFS",
+    "type": "pattern",
+    "title": "Matrix Depth-First Search",
+    "url": "https://neetcode.io/problems/matrixDFS/question",
+    "source": "NeetCode Core Skills",
+    "topic": "grids",
+    "track": "patterns",
+    "status": "active"
+  },
+  {
+    "id": "core_08_matrixBFS",
+    "type": "pattern",
+    "title": "Matrix Breadth-First Search",
+    "url": "https://neetcode.io/problems/matrixBFS/question",
+    "source": "NeetCode Core Skills",
+    "topic": "grids",
+    "track": "patterns",
+    "status": "active"
+  },
+  {
+    "id": "core_09_singlyLinkedList",
+    "type": "oop",
+    "title": "Design Singly Linked List",
+    "url": "https://neetcode.io/problems/singlyLinkedList/question",
+    "source": "NeetCode Core Skills",
+    "topic": "linked-lists",
+    "track": "patterns",
+    "status": "parked"
+  },
+  {
+    "id": "core_10_binarySearchTree",
+    "type": "oop",
+    "title": "Design Binary Search Tree",
+    "url": "https://neetcode.io/problems/binarySearchTree/question",
+    "source": "NeetCode Core Skills",
+    "topic": "trees",
+    "track": "patterns",
+    "status": "parked"
+  },
+  {
+    "id": "core_11_heap",
+    "type": "oop",
+    "title": "Design Heap",
+    "url": "https://neetcode.io/problems/heap/question",
+    "source": "NeetCode Core Skills",
+    "topic": "heaps",
+    "track": "patterns",
+    "status": "parked"
+  },
+  {
+    "id": "core_12_graph",
+    "type": "oop",
+    "title": "Design Graph",
+    "url": "https://neetcode.io/problems/graph/question",
+    "source": "NeetCode Core Skills",
+    "topic": "graphs",
+    "track": "patterns",
+    "status": "parked"
+  },
+  {
+    "id": "core_13_unionFind",
+    "type": "oop",
+    "title": "Design Disjoint Set (Union-Find)",
+    "url": "https://neetcode.io/problems/unionFind/question",
+    "source": "NeetCode Core Skills",
+    "topic": "graphs",
+    "track": "patterns",
+    "status": "parked"
+  },
+  {
+    "id": "core_14_segmentTree",
+    "type": "oop",
+    "title": "Design Segment Tree",
+    "url": "https://neetcode.io/problems/segmentTree/question",
+    "source": "NeetCode Core Skills",
+    "topic": "trees",
+    "track": "patterns",
+    "status": "parked"
+  },
+  {
+    "id": "core_15_dijkstra",
+    "type": "pattern",
+    "title": "Dijkstra's Algorithm",
+    "url": "https://neetcode.io/problems/dijkstra/question",
+    "source": "NeetCode Core Skills",
+    "topic": "graphs",
+    "track": "patterns",
+    "status": "parked"
+  },
+  {
+    "id": "core_16_prim",
+    "type": "pattern",
+    "title": "Prim's Algorithm",
+    "url": "https://neetcode.io/problems/prim/question",
+    "source": "NeetCode Core Skills",
+    "topic": "graphs",
+    "track": "patterns",
+    "status": "parked"
+  },
+  {
+    "id": "core_17_kruskal",
+    "type": "pattern",
+    "title": "Kruskal's Algorithm",
+    "url": "https://neetcode.io/problems/kruskal/question",
+    "source": "NeetCode Core Skills",
+    "topic": "graphs",
+    "track": "patterns",
+    "status": "parked"
+  },
+  {
+    "id": "core_18_topological_sort",
+    "type": "pattern",
+    "title": "Topological Sort",
+    "url": "https://neetcode.io/practice/practice/coreSkills",
+    "source": "NeetCode Core Skills",
+    "topic": "graphs",
+    "track": "patterns",
+    "status": "parked",
+    "note": "open it from the Core Skills page"
+  },
+  {
+    "id": "core_19_0_1_knapsack",
+    "type": "pattern",
+    "title": "0/1 Knapsack",
+    "url": "https://neetcode.io/practice/practice/coreSkills",
+    "source": "NeetCode Core Skills",
+    "topic": "dynamic-programming",
+    "track": "patterns",
+    "status": "parked",
+    "note": "open it from the Core Skills page"
+  },
+  {
+    "id": "core_20_unbounded_knapsack",
+    "type": "pattern",
+    "title": "Unbounded Knapsack",
+    "url": "https://neetcode.io/practice/practice/coreSkills",
+    "source": "NeetCode Core Skills",
+    "topic": "dynamic-programming",
+    "track": "patterns",
+    "status": "parked",
+    "note": "open it from the Core Skills page"
+  }
+]

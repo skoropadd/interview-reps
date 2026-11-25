@@ -29,6 +29,34 @@
     ]
   },
   {
+    "id": "oop_07_property",
+    "type": "oop",
+    "title": "Encapsulation: properties and a validating setter",
+    "tags": [
+      "@property",
+      "setter",
+      "_private"
+    ],
+    "readme": "tasks/oop/oop_07_property/README.md",
+    "starter": "tasks/oop/oop_07_property/starter.py",
+    "test": "tasks/oop/oop_07_property/test.py",
+    "solution": "solutions/oop_07_property.py"
+  },
+  {
+    "id": "oop_08_class_methods",
+    "type": "oop",
+    "title": "Class attributes, class methods and static methods",
+    "tags": [
+      "@classmethod",
+      "@staticmethod",
+      "class attribute"
+    ],
+    "readme": "tasks/oop/oop_08_class_methods/README.md",
+    "starter": "tasks/oop/oop_08_class_methods/starter.py",
+    "test": "tasks/oop/oop_08_class_methods/test.py",
+    "solution": "solutions/oop_08_class_methods.py"
+  },
+  {
     "id": "oop_03_savings_account",
     "type": "oop",
     "title": "Inheritance and super(): SavingsAccount",
