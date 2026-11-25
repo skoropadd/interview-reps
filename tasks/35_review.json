@@ -1,0 +1,43 @@
+[
+  {
+    "id": "explain_01_models",
+    "type": "debug",
+    "kind": "explain",
+    "title": "Read and explain: a small class hierarchy",
+    "readme": "tasks/review/explain_01_models/README.md",
+    "tags": [
+      "super()",
+      "inheritance",
+      "class attribute"
+    ],
+    "answers": "Output: 'generic model base' / 'tree(depth=3) model gbm' / 'tree(depth=1) model tiny' / ['base', 'gbm', 'tiny'] True / True False. Stump sets depth to 99, then super().__init__(name, depth=1) runs TreeModel.__init__, which calls Model.__init__ (sets name, appends to the registry) and then overwrites depth with 1. describe calls self.kind(); Python looks kind up on the object's own class first, so the subclass version runs (polymorphism). registry is a class attribute: one list shared by every instance and subclass. self.registry = [name] would create a separate instance attribute per object and the shared list would stay empty. isinstance follows inheritance upward only: a Stump is a TreeModel, a TreeModel is not a Stump."
+  },
+  {
+    "id": "explain_02_features",
+    "type": "debug",
+    "kind": "explain",
+    "title": "Read and explain: feature helpers with two traps",
+    "readme": "tasks/review/explain_02_features/README.md",
+    "tags": [
+      "mutable default",
+      "aliasing",
+      "zip",
+      "enumerate"
+    ],
+    "answers": "Output: {'amount': 120, 'country': 'NL'} / True / 0.25 True / ['amount', 'age'] 3. Trap 1, mutable default argument: features={} is created once, when the function is defined, so every call without that argument shares one dict. Fix: features=None, then 'if features is None: features = {}'. Trap 2, mutation in place: scale changes the dicts inside the caller's list and returns the same list, so raw is already scaled. It hurts when raw is reused later, or when scale runs twice. Fix: build new dicts. numeric: zip pairs each name with its kind and the comprehension keeps names whose kind is 'num'. lookup: a dict from name to position, counting from 1."
+  },
+  {
+    "id": "explain_03_loader",
+    "type": "debug",
+    "kind": "explain",
+    "title": "Read and explain: a loader with try, except and finally",
+    "readme": "tasks/review/explain_03_loader/README.md",
+    "tags": [
+      "try/except/finally",
+      "raise",
+      "custom exception",
+      "sorted key"
+    ],
+    "answers": "Output: 'line 2 skipped' / 'line 3 skipped' / [('ann', 10.5), ('dee', 3.0)] / 2 4 / ('ann', 10.5) / {'ann': 10.5, 'dee': 3.0} / 'line 1 skipped' / 'failed: nothing loaded'. 'bob' fails at the unpacking 'user, amount = line.split(\",\")': one value, two names, ValueError. 'cy, x' unpacks fine and fails in float(' x'): also ValueError. finally runs on every pass, error or not, so last is the number of the final line, 4. A custom exception lets the caller tell 'the file was empty or all bad' apart from a parsing error. The last block catching ValueError would not catch LoadError (it inherits from Exception, not ValueError), so the program would crash with a traceback."
+  }
+]

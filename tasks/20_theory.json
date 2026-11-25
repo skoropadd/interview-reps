@@ -280,5 +280,122 @@
     "topic": "python-basics",
     "track": "python",
     "status": "active"
+  },
+  {
+    "id": "th_21",
+    "type": "theory",
+    "title": "A/B test on a rare final action (e.g. cancellations): where in the fun",
+    "front": "A/B test on a rare final action (e.g. cancellations): where in the funnel do you enrol users, and why?",
+    "back": "As close to the action as possible. Enrol at landing and only about 1% of users ever reach the step, so 99% of the sample adds noise and no signal; the effect is diluted and the test runs far longer. Enrol at the cancel click and the baseline rate is 10 to 15%, so the same effect is detectable with a fraction of the users. Rule: randomise where the experience first differs.",
+    "tags": [
+      "stats"
+    ],
+    "topic": "experiments",
+    "track": "stats",
+    "status": "active"
+  },
+  {
+    "id": "th_22",
+    "type": "theory",
+    "title": "Define A, B (and C) for a proposed change in one sentence each. What m",
+    "front": "Define A, B (and C) for a proposed change in one sentence each. What must every variant definition contain?",
+    "back": "A (control) = today's experience, unchanged. B (treatment) = the same experience with exactly ONE thing changed. C = a second version of that one thing (not a second idea). Each definition needs: who is eligible, the unit that is randomised, the single difference, and the metric it should move. If you cannot say the single difference in one sentence, the test is not designed yet.",
+    "tags": [
+      "stats"
+    ],
+    "topic": "experiments",
+    "track": "stats",
+    "status": "active"
+  },
+  {
+    "id": "th_23",
+    "type": "theory",
+    "title": "Marketing attribution: a booking follows three touchpoints. Name the a",
+    "front": "Marketing attribution: a booking follows three touchpoints. Name the approaches for splitting the credit, from simplest to data-driven.",
+    "back": "Rule-based: last-click (all credit to the last touch), first-click, linear (equal split), position-based (most to first and last), time-decay (more to recent touches). Data-driven: Markov chain removal effect (how much conversion drops if a channel is removed from the paths) and Shapley value (a channel's average marginal contribution over all orderings). Attribution describes credit; only an experiment (geo or holdout) measures incrementality.",
+    "tags": [
+      "stats"
+    ],
+    "topic": "experiments",
+    "track": "stats",
+    "status": "active"
+  },
+  {
+    "id": "th_24",
+    "type": "theory",
+    "title": "Feature importance inside a gradient-boosted model: what are split cou",
+    "front": "Feature importance inside a gradient-boosted model: what are split count and gain, and what is the catch?",
+    "back": "Split count (weight) = how many times a feature is used to split. Gain = the total reduction in the training loss from those splits. Both come from the training data, so they favour high-cardinality and continuous features and split the credit between correlated ones. They also depend on the loss being optimised: change the objective and the ranking changes. For a ranking you will act on, use permutation importance on held-out data or SHAP.",
+    "tags": [
+      "ml"
+    ],
+    "topic": "ml-models",
+    "track": "ml",
+    "status": "active"
+  },
+  {
+    "id": "th_25",
+    "type": "theory",
+    "title": "Gradient descent: the update rule, and batch vs stochastic vs mini-bat",
+    "front": "Gradient descent: the update rule, and batch vs stochastic vs mini-batch.",
+    "back": "Update: parameter = parameter minus learning rate times the gradient of the loss. Too large a learning rate overshoots or diverges; too small crawls. Batch: gradient over all rows per step (exact, slow). Stochastic (SGD): one row per step (noisy, cheap, can escape shallow dips). Mini-batch: a small batch (e.g. 32 to 512) per step, the default in practice: smooth enough and fits on a GPU. One pass over all the data is an epoch.",
+    "tags": [
+      "stats"
+    ],
+    "topic": "regression",
+    "track": "stats",
+    "status": "active"
+  },
+  {
+    "id": "th_26",
+    "type": "theory",
+    "title": "Regularisation in deep learning: dropout, batch normalisation, and the",
+    "front": "Regularisation in deep learning: dropout, batch normalisation, and the other standard tools.",
+    "back": "Dropout: during training, switch off a random share of units each step so the network cannot lean on any single one; at prediction time all units are on. Batch normalisation: rescale each layer's inputs to a stable mean and spread per mini-batch; it speeds up and stabilises training and regularises a little. Also: weight decay (L2 on the weights), early stopping on a validation set, data augmentation.",
+    "tags": [
+      "dl"
+    ],
+    "topic": "dl-basics",
+    "track": "dl",
+    "status": "active"
+  },
+  {
+    "id": "th_27",
+    "type": "theory",
+    "title": "A convolutional network (CNN): the three kinds of layer and what each ",
+    "front": "A convolutional network (CNN): the three kinds of layer and what each does.",
+    "back": "Convolution: slide small filters over the input; each filter detects a local pattern (an edge, a texture) wherever it appears, with shared weights. Pooling: shrink the feature map (e.g. keep the max of each 2 by 2 block), giving some tolerance to small shifts. Fully connected: at the end, combine the detected features into the prediction. Early layers find simple patterns, deeper layers combinations of them.",
+    "tags": [
+      "dl"
+    ],
+    "topic": "dl-basics",
+    "track": "dl",
+    "status": "active"
+  },
+  {
+    "id": "th_28",
+    "type": "theory",
+    "title": "RAG vs fine-tuning: what does each change, when do you use which, and ",
+    "front": "RAG vs fine-tuning: what does each change, when do you use which, and what is LoRA?",
+    "back": "RAG (retrieval-augmented generation) changes WHAT the model knows at answer time: retrieve relevant documents and put them in the prompt. Use it for facts that change or are private, and when answers must cite sources. Fine-tuning changes HOW the model behaves: tone, format, a narrow skill. It does not keep facts fresh. LoRA is cheap fine-tuning: freeze the original weights and train small low-rank matrices added to them. Order in practice: prompt first, then RAG, then fine-tune.",
+    "tags": [
+      "genai"
+    ],
+    "topic": "llm",
+    "track": "genai",
+    "status": "active"
+  },
+  {
+    "id": "th_29",
+    "type": "theory",
+    "title": "How do you evaluate an LLM application in production?",
+    "front": "How do you evaluate an LLM application in production?",
+    "back": "Quality: groundedness (is the answer supported by the retrieved context), hallucination rate, task success on a fixed test set, with an LLM as judge calibrated against human labels. Retrieval, for RAG: does the right document come back (recall at k). Operations: latency, cost per request (tokens, and the number of calls for agents), failure rate. Risk: human review for high-stakes outputs, and monitoring of real traffic for drift.",
+    "tags": [
+      "genai"
+    ],
+    "topic": "llm",
+    "track": "genai",
+    "status": "active"
   }
 ]

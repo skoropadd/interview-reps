@@ -11,6 +11,7 @@ Read `modes/_tutor.md` first.
    - **Theory cards.** One by one, front first.
    - **Main task.**
      - With a `readme`: show it, run `start <id>`, tell them the file path, wait until they say they're done, then run `check <id>` and review.
+     - With `"kind": "explain"`: show the README, no `start` and no `check`. They answer in the chat. See the tutor rules.
      - With a `url`: give the link and the pattern name. They solve it there with autocomplete off, then paste the code and say whether it passed. Review.
      - Remind them of the conditions once: 25 minutes, talk out loud, trace a small example by hand before running anything.
    - **Redo.** Same as the main task. Before they start, show the bug-log note for this task if there is one.

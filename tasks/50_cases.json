@@ -26,5 +26,12 @@
     "title": "One training row: fraud alert model",
     "front": "In 90 seconds, typed: build a model to prioritise transaction-monitoring alerts. Write ONE training row and say how you would split the data.",
     "back": "Unit: one alert (customer x alert date). Label: 1 if the investigation ended in a suspicious-activity report. Features known at alert time: amount vs the customer's history and peer group, country risk, counterparties, account age. Split by time, with no customer in both train and test."
+  },
+  {
+    "id": "case_05",
+    "type": "case",
+    "title": "Answer the question asked: value of each touchpoint",
+    "front": "In 90 seconds, typed: a user clicks a search ad, then a comparison site, then a metasearch link, and books. The commission is 100 euros. The question is ONLY: how do you value each touchpoint? Give a baseline, a better version, and how you would check it.",
+    "back": "Baseline: last-click, all 100 to the last touch; simple and what most reporting uses. Better: a data-driven split, e.g. Markov removal effect or Shapley, from many journeys with and without each channel. Check: an incrementality test, switching one channel off in some regions and comparing bookings. Stop there: what to do with the values (budget, bidding) is the next question, and nobody asked it yet."
   }
 ]

@@ -56,6 +56,35 @@
     ]
   },
   {
+    "id": "oop_05_dataset",
+    "type": "oop",
+    "title": "A container class: Dataset",
+    "tags": [
+      "__len__",
+      "__getitem__",
+      "__iter__",
+      "__contains__"
+    ],
+    "readme": "tasks/oop/oop_05_dataset/README.md",
+    "starter": "tasks/oop/oop_05_dataset/starter.py",
+    "test": "tasks/oop/oop_05_dataset/test.py",
+    "solution": "solutions/oop_05_dataset.py"
+  },
+  {
+    "id": "oop_06_vectors",
+    "type": "oop",
+    "title": "From a blank file: dense and sparse vectors",
+    "tags": [
+      "ABC",
+      "__init__",
+      "raise"
+    ],
+    "readme": "tasks/oop/oop_06_vectors/README.md",
+    "starter": "tasks/oop/oop_06_vectors/starter.py",
+    "test": "tasks/oop/oop_06_vectors/test.py",
+    "solution": "solutions/oop_06_vectors.py"
+  },
+  {
     "id": "debug_01_pipeline",
     "type": "debug",
     "title": "Find the bugs: a feature pipeline",

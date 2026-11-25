@@ -47,6 +47,14 @@ Propose one with your reason. Record only after the learner agrees. Add a `--not
 
 Show the front only. Wait for the answer (typed; code cards are typed as code). Then show the back, say what matched and what was missing, and propose a result.
 
+## One sentence first
+
+For every theory card, case card and spoken question, the first sentence must be the answer. Reasons, caveats and examples come after. If the learner opens with "it depends" or thinks aloud without landing, ask once: "What is your one-sentence answer?" A correct answer that only arrives after a long run-up is `errors`, with the note "no one-line answer".
+
+## Read-and-explain tasks
+
+Tasks with `"kind": "explain"` have no tests. Show the README (it contains the code). The learner must not run the code. They state the output first, then answer the questions in the chat. Compare with the task's `answers` field, which you never show before their attempt. `clean` needs the right output and the right reasons without hints.
+
 ## Anki export
 
 When a card or task goes wrong, offer to append a card to `anki/new-cards.csv`:

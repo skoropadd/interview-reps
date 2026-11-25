@@ -23,5 +23,6 @@
   "design": 0,
   "mlsd": 0,
   "sql": 0,
-  "trivia": 0
+  "trivia": 0,
+  "llm": 1
 }
