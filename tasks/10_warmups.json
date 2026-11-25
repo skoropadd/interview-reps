@@ -1,0 +1,86 @@
+[
+  {
+    "id": "warm_01",
+    "type": "warmup",
+    "title": "Count with a dict",
+    "prompt": "Given words = ['a','b','a','c','b','a'], build a dict of counts with a plain loop and .get. No Counter.",
+    "expect": "{'a': 3, 'b': 2, 'c': 1}"
+  },
+  {
+    "id": "warm_02",
+    "type": "warmup",
+    "title": "Slice a 2D window",
+    "prompt": "Given a 4x5 matrix (list of lists), return the 2x3 sub-matrix whose top-left corner is at row 1, column 2, as a list of lists.",
+    "expect": "[row[2:5] for row in matrix[1:3]]"
+  },
+  {
+    "id": "warm_03",
+    "type": "warmup",
+    "title": "Loop ranges for a sliding window",
+    "prompt": "For a list of length n and a window of size k, write the for-loop header that visits every valid start index, and print each window.",
+    "expect": "for i in range(n - k + 1): print(nums[i:i + k])"
+  },
+  {
+    "id": "warm_04",
+    "type": "warmup",
+    "title": "Sort with a key",
+    "prompt": "Given bookings = [('ams', 120), ('ber', 80), ('par', 200)], sort by price descending, then return only the city names.",
+    "expect": "['par', 'ams', 'ber'] using sorted(..., key=lambda b: b[1], reverse=True)"
+  },
+  {
+    "id": "warm_05",
+    "type": "warmup",
+    "title": "Group into a dict of lists",
+    "prompt": "Given pairs = [('nl','ams'),('de','ber'),('nl','rot')], group cities by country into a dict of lists.",
+    "expect": "{'nl': ['ams', 'rot'], 'de': ['ber']} with setdefault or defaultdict(list)"
+  },
+  {
+    "id": "warm_06",
+    "type": "warmup",
+    "title": "enumerate and zip",
+    "prompt": "Given names and scores (two lists of equal length), print 'rank. name: score' starting the rank at 1.",
+    "expect": "for rank, (name, score) in enumerate(zip(names, scores), start=1)"
+  },
+  {
+    "id": "warm_07",
+    "type": "warmup",
+    "title": "Comprehension with a filter and an else",
+    "prompt": "From nums, build (a) a list of only the even numbers squared, and (b) a list with 'even' or 'odd' for every number.",
+    "expect": "[n*n for n in nums if n % 2 == 0] and ['even' if n % 2 == 0 else 'odd' for n in nums]"
+  },
+  {
+    "id": "warm_08",
+    "type": "warmup",
+    "title": "String split, strip, join",
+    "prompt": "Given s = ' 2026-11-25 , AMS ,  3 nights ', return the parts stripped of spaces and joined with '|'.",
+    "expect": "'2026-11-25|AMS|3 nights'"
+  },
+  {
+    "id": "warm_09",
+    "type": "warmup",
+    "title": "Sum a matrix and its columns",
+    "prompt": "Given a matrix, compute the total of all entries and a list with the sum of each column, with plain loops or zip(*matrix).",
+    "expect": "sum(sum(row) for row in matrix) and [sum(col) for col in zip(*matrix)]"
+  },
+  {
+    "id": "warm_10",
+    "type": "warmup",
+    "title": "Function with every path returning",
+    "prompt": "Write first_negative(nums) that returns the index of the first negative number, or None if there is none. Say what it returns for an empty list.",
+    "expect": "None for [] and for all-positive input"
+  },
+  {
+    "id": "warm_11",
+    "type": "warmup",
+    "title": "try / except / raise",
+    "prompt": "Write safe_ratio(a, b) that returns a / b, raises ValueError('b must not be zero') when b is 0, and show a caller catching it.",
+    "expect": "raise ValueError(...) inside, try/except ValueError as e outside"
+  },
+  {
+    "id": "warm_12",
+    "type": "warmup",
+    "title": "Two pointers skeleton",
+    "prompt": "Write the loop skeleton for two pointers moving inwards on a sorted list, stopping when they meet.",
+    "expect": "left, right = 0, len(nums) - 1; while left < right: ..."
+  }
+]

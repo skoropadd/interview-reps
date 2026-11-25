@@ -1,0 +1,12 @@
+# User layer: personal progress, solutions and context. Never commit.
+data/
+work/
+profile/
+anki/*.txt
+anki/*.csv
+tasks/theory_anki.json
+__pycache__/
+*.pyc
+.DS_Store
+.venv/
+tasks/*_personal.json

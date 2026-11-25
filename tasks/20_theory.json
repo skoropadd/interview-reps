@@ -1,0 +1,284 @@
+[
+  {
+    "id": "th_01",
+    "type": "theory",
+    "title": "What is `self` in a Python method?",
+    "front": "What is `self` in a Python method?",
+    "back": "The specific object the method was called on. obj.method(x) is translated to Class.method(obj, x), so the instance is passed in automatically as the first argument. It is not a global or class namespace.",
+    "tags": [
+      "python"
+    ],
+    "topic": "oop",
+    "track": "python",
+    "status": "off",
+    "merged_into": "py_153",
+    "note": "your own card covers this"
+  },
+  {
+    "id": "th_02",
+    "type": "theory",
+    "title": "List vs tuple: the differences that matter",
+    "front": "List vs tuple: the differences that matter",
+    "back": "A list is mutable (append, change items); a tuple is immutable. A tuple of hashable items is hashable, so it can be a dict key or a set member; a list cannot. Use a tuple for a fixed record such as (row, col).",
+    "tags": [
+      "python"
+    ],
+    "topic": "python-basics",
+    "track": "python",
+    "status": "off",
+    "merged_into": "py_151",
+    "note": "your own card covers this"
+  },
+  {
+    "id": "th_03",
+    "type": "theory",
+    "title": "What goes wrong with a mutable default argument, e.g. def add(x, items",
+    "front": "What goes wrong with a mutable default argument, e.g. def add(x, items=[])?",
+    "back": "The default list is created once, when the function is defined, and shared by every call. Items pile up across calls. Fix: items=None, then `if items is None: items = []` inside.",
+    "tags": [
+      "python"
+    ],
+    "topic": "python-basics",
+    "track": "python",
+    "status": "active"
+  },
+  {
+    "id": "th_04",
+    "type": "theory",
+    "title": "Instance attribute vs class attribute",
+    "front": "Instance attribute vs class attribute",
+    "back": "An instance attribute is set on self (usually in __init__) and belongs to one object. A class attribute is defined in the class body and shared by all instances. A mutable class attribute, like a list, is shared state: a classic bug.",
+    "tags": [
+      "python"
+    ],
+    "topic": "oop",
+    "track": "python",
+    "status": "off",
+    "merged_into": "py_215",
+    "note": "your own card covers this"
+  },
+  {
+    "id": "th_05",
+    "type": "theory",
+    "title": "@classmethod vs @staticmethod vs a normal method: when to use each?",
+    "front": "@classmethod vs @staticmethod vs a normal method: when to use each?",
+    "back": "Normal method: needs the instance (self). @classmethod: receives the class (cls); use for alternative constructors such as from_csv. @staticmethod: receives neither; a helper function that lives in the class for organisation only.",
+    "tags": [
+      "python"
+    ],
+    "topic": "oop",
+    "track": "python",
+    "status": "off",
+    "merged_into": "py_105",
+    "note": "your own card covers this"
+  },
+  {
+    "id": "th_06",
+    "type": "theory",
+    "title": "What does super().__init__(...) do, and what happens if a subclass for",
+    "front": "What does super().__init__(...) do, and what happens if a subclass forgets it?",
+    "back": "It runs the parent class's __init__ so the parent's attributes get set. If the subclass defines __init__ and does not call it, the parent's attributes are missing and the first method that uses them raises AttributeError.",
+    "tags": [
+      "python"
+    ],
+    "topic": "oop",
+    "track": "python",
+    "status": "off",
+    "merged_into": "py_150",
+    "note": "your own card covers this"
+  },
+  {
+    "id": "th_07",
+    "type": "theory",
+    "title": "What is an abstract base class, and what do ABC and @abstractmethod en",
+    "front": "What is an abstract base class, and what do ABC and @abstractmethod enforce?",
+    "back": "A class that defines an interface and cannot be instantiated. With `class Model(ABC)` and `@abstractmethod def fit(...)`, calling Model() raises TypeError, and so does instantiating any subclass that has not implemented every abstract method.",
+    "tags": [
+      "python"
+    ],
+    "topic": "oop",
+    "track": "python",
+    "status": "off",
+    "merged_into": "py_075",
+    "note": "your own card covers this"
+  },
+  {
+    "id": "th_08",
+    "type": "theory",
+    "title": "__repr__ vs __str__, and why define __eq__ and __hash__ together?",
+    "front": "__repr__ vs __str__, and why define __eq__ and __hash__ together?",
+    "back": "__repr__ is the unambiguous developer view (shown in the REPL and inside containers); __str__ is the readable view for print, and falls back to __repr__. Defining __eq__ alone sets __hash__ to None, so objects can no longer go in sets or dict keys. Equal objects must have equal hashes.",
+    "tags": [
+      "python"
+    ],
+    "topic": "oop",
+    "track": "python",
+    "status": "active"
+  },
+  {
+    "id": "th_09",
+    "type": "theory",
+    "title": "Bayes' theorem, and the two-box check",
+    "front": "Bayes' theorem, and the two-box check",
+    "back": "P(A|B) = P(B|A) P(A) / P(B), where P(B) = sum over all cases of P(B|case) P(case). Box 1 has 3 blue of 10, box 2 has 6 blue of 10, boxes equally likely: P(box 1 | blue) = (0.3 x 0.5) / (0.3 x 0.5 + 0.6 x 0.5) = 1/3.",
+    "tags": [
+      "stats"
+    ],
+    "topic": "probability",
+    "track": "stats",
+    "status": "off",
+    "merged_into": "st_000",
+    "note": "your own card covers this"
+  },
+  {
+    "id": "th_10",
+    "type": "theory",
+    "title": "Derive the MLE for a coin: 450 heads in 1000 tosses",
+    "front": "Derive the MLE for a coin: 450 heads in 1000 tosses",
+    "back": "Likelihood L(p) = p^k (1-p)^(n-k). Log: k log p + (n-k) log(1-p). Derivative: k/p - (n-k)/(1-p) = 0. Solve: p = k/n = 0.45. The steps are always likelihood, log, derivative, set to zero.",
+    "tags": [
+      "stats"
+    ],
+    "topic": "regression",
+    "track": "stats",
+    "status": "active"
+  },
+  {
+    "id": "th_11",
+    "type": "theory",
+    "title": "Cross-entropy (log loss) for binary classification: formula and why",
+    "front": "Cross-entropy (log loss) for binary classification: formula and why",
+    "back": "Loss = -[y log(p) + (1-y) log(1-p)], averaged over rows. It is the negative log-likelihood of a Bernoulli model, so minimising it is maximum likelihood. The log punishes confident wrong predictions very hard: p = 0.01 for a true 1 costs 4.6, p = 0.5 costs 0.69.",
+    "tags": [
+      "ml"
+    ],
+    "topic": "ml-metrics",
+    "track": "ml",
+    "status": "off",
+    "merged_into": "st_054",
+    "note": "your own card covers this"
+  },
+  {
+    "id": "th_12",
+    "type": "theory",
+    "title": "How do you fit linear regression: closed form and the alternative?",
+    "front": "How do you fit linear regression: closed form and the alternative?",
+    "back": "Closed form (normal equations): beta = (X'X)^-1 X'y, from setting the gradient of squared error to zero. Alternative: gradient descent, beta = beta - lr x gradient, where the gradient of mean squared error is (2/n) X'(X beta - y). Use it when the data are too big to invert X'X.",
+    "tags": [
+      "ml"
+    ],
+    "topic": "regression",
+    "track": "stats",
+    "status": "off",
+    "merged_into": "st_085",
+    "note": "your own card covers this"
+  },
+  {
+    "id": "th_13",
+    "type": "theory",
+    "title": "A geo experiment is contaminated: a second channel raised spend in the",
+    "front": "A geo experiment is contaminated: a second channel raised spend in the treated regions. Effect on the estimate, and the fix?",
+    "back": "The measured effect is biased towards zero, because the other channel replaced part of the lost conversions. The extra uncontrolled spend adds noise, so the standard error is if anything larger, and it does not show the bias. Fix: regress on the region-by-week panel with the other channel's spend as a covariate, or difference-in-differences against the pre-period.",
+    "tags": [
+      "stats"
+    ],
+    "topic": "experiments",
+    "track": "stats",
+    "status": "active"
+  },
+  {
+    "id": "th_14",
+    "type": "theory",
+    "title": "More features than rows: why does least squares fail, and what does ri",
+    "front": "More features than rows: why does least squares fail, and what does ridge do?",
+    "back": "With p > n, X'X cannot be inverted, so there are infinitely many perfect fits. Ridge adds lambda to the diagonal (penalty lambda x sum of beta squared), which makes it solvable and shrinks coefficients towards zero. Lasso (absolute-value penalty) sets some exactly to zero, selecting features.",
+    "tags": [
+      "ml"
+    ],
+    "topic": "regression",
+    "track": "stats",
+    "status": "active"
+  },
+  {
+    "id": "th_15",
+    "type": "theory",
+    "title": "How does a tree choose a split, in classification and in regression?",
+    "front": "How does a tree choose a split, in classification and in regression?",
+    "back": "Classification: the split that most reduces impurity, measured by Gini (1 - sum of p squared) or entropy. Regression: the split that most reduces variance (squared error) of the target. Gini is not used for regression.",
+    "tags": [
+      "ml"
+    ],
+    "topic": "ml-models",
+    "track": "ml",
+    "status": "active"
+  },
+  {
+    "id": "th_16",
+    "type": "theory",
+    "title": "KNN vs K-means in one line each",
+    "front": "KNN vs K-means in one line each",
+    "back": "KNN is supervised: predict from the k nearest labelled points, no training step. K-means is unsupervised: cluster unlabelled points around k centroids by alternating assign and re-centre.",
+    "tags": [
+      "ml"
+    ],
+    "topic": "ml-models",
+    "track": "ml",
+    "status": "off",
+    "merged_into": "st_149",
+    "note": "your own card covers this"
+  },
+  {
+    "id": "th_17",
+    "type": "theory",
+    "title": "Vanishing and exploding gradients: what and the standard fixes",
+    "front": "Vanishing and exploding gradients: what and the standard fixes",
+    "back": "In deep networks, backpropagation multiplies many derivatives. Below 1 they shrink to nothing (early layers stop learning); above 1 they blow up. Fixes: ReLU-type activations, residual connections, normalisation layers, careful initialisation, and gradient clipping for explosion.",
+    "tags": [
+      "dl"
+    ],
+    "topic": "dl-basics",
+    "track": "dl",
+    "status": "active"
+  },
+  {
+    "id": "th_18",
+    "type": "theory",
+    "title": "What does attention compute, in one sentence, and the three parts?",
+    "front": "What does attention compute, in one sentence, and the three parts?",
+    "back": "For each token, a weighted average of all tokens' values, where the weights come from how well this token's query matches every token's key (dot product, scaled, then softmax). Query: what I am looking for. Key: what I offer. Value: what I pass on.",
+    "tags": [
+      "dl"
+    ],
+    "topic": "dl-basics",
+    "track": "dl",
+    "status": "active"
+  },
+  {
+    "id": "th_19",
+    "type": "theory",
+    "title": "Type I vs Type II error in null-hypothesis language",
+    "front": "Type I vs Type II error in null-hypothesis language",
+    "back": "Type I: rejecting a true null hypothesis (a false positive); its rate is alpha, usually 5%. Type II: failing to reject a false null (a miss); its rate is beta, and power = 1 - beta, usually 80%.",
+    "tags": [
+      "stats"
+    ],
+    "topic": "inference",
+    "track": "stats",
+    "status": "off",
+    "merged_into": "st_092",
+    "note": "your own card covers this"
+  },
+  {
+    "id": "th_20",
+    "type": "theory",
+    "title": "Time complexity of: dict lookup, `x in list`, sorting, and a nested lo",
+    "front": "Time complexity of: dict lookup, `x in list`, sorting, and a nested loop over an n-by-m grid",
+    "back": "Dict or set lookup: O(1) on average. `x in list`: O(n). Sorting: O(n log n). Nested loop over a grid: O(n x m). Summing each h-by-w window from scratch: O(n m h w); a 2D prefix-sum table makes each window O(1).",
+    "tags": [
+      "python"
+    ],
+    "topic": "python-basics",
+    "track": "python",
+    "status": "active"
+  }
+]

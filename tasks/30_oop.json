@@ -1,0 +1,87 @@
+[
+  {
+    "id": "oop_01_bank_account",
+    "type": "oop",
+    "title": "A basic class: BankAccount",
+    "readme": "tasks/oop/oop_01_bank_account/README.md",
+    "starter": "tasks/oop/oop_01_bank_account/starter.py",
+    "test": "tasks/oop/oop_01_bank_account/test.py",
+    "solution": "solutions/oop_01_bank_account.py",
+    "tags": [
+      "class",
+      "__init__",
+      "__repr__",
+      "raise"
+    ]
+  },
+  {
+    "id": "oop_02_money",
+    "type": "oop",
+    "title": "Equality and hashing: Money",
+    "readme": "tasks/oop/oop_02_money/README.md",
+    "starter": "tasks/oop/oop_02_money/starter.py",
+    "test": "tasks/oop/oop_02_money/test.py",
+    "solution": "solutions/oop_02_money.py",
+    "tags": [
+      "__eq__",
+      "__hash__",
+      "__add__"
+    ]
+  },
+  {
+    "id": "oop_03_savings_account",
+    "type": "oop",
+    "title": "Inheritance and super(): SavingsAccount",
+    "readme": "tasks/oop/oop_03_savings_account/README.md",
+    "starter": "tasks/oop/oop_03_savings_account/starter.py",
+    "test": "tasks/oop/oop_03_savings_account/test.py",
+    "solution": "solutions/oop_03_savings_account.py",
+    "tags": [
+      "inheritance",
+      "super",
+      "override"
+    ]
+  },
+  {
+    "id": "oop_04_abstract_model",
+    "type": "oop",
+    "title": "An abstract base class: Model",
+    "readme": "tasks/oop/oop_04_abstract_model/README.md",
+    "starter": "tasks/oop/oop_04_abstract_model/starter.py",
+    "test": "tasks/oop/oop_04_abstract_model/test.py",
+    "solution": "solutions/oop_04_abstract_model.py",
+    "tags": [
+      "ABC",
+      "abstractmethod"
+    ]
+  },
+  {
+    "id": "debug_01_pipeline",
+    "type": "debug",
+    "title": "Find the bugs: a feature pipeline",
+    "readme": "tasks/oop/debug_01_pipeline/README.md",
+    "starter": "tasks/oop/debug_01_pipeline/starter.py",
+    "test": "tasks/oop/debug_01_pipeline/test.py",
+    "solution": "solutions/debug_01_pipeline.py",
+    "tags": [
+      "debugging",
+      "self",
+      "super",
+      "mutable default"
+    ]
+  },
+  {
+    "id": "debug_02_vectors",
+    "type": "debug",
+    "title": "Find the bugs: dense and sparse vectors",
+    "readme": "tasks/oop/debug_02_vectors/README.md",
+    "starter": "tasks/oop/debug_02_vectors/starter.py",
+    "test": "tasks/oop/debug_02_vectors/test.py",
+    "solution": "solutions/debug_02_vectors.py",
+    "tags": [
+      "debugging",
+      "ABC",
+      "__init__"
+    ]
+  }
+]
