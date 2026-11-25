@@ -1,0 +1,86 @@
+[
+  {
+    "id": "mlc_01_metrics",
+    "type": "pattern",
+    "title": "Precision, recall and F1 from scratch",
+    "readme": "tasks/mlcoding/mlc_01_metrics/README.md",
+    "test": "tasks/mlcoding/mlc_01_metrics/test.py",
+    "solution": "solutions/mlc_01_metrics.py",
+    "topic": "ml-coding",
+    "track": "ml",
+    "status": "active",
+    "level": "medium"
+  },
+  {
+    "id": "mlc_02_kfold",
+    "type": "pattern",
+    "title": "k-fold split indexes",
+    "readme": "tasks/mlcoding/mlc_02_kfold/README.md",
+    "test": "tasks/mlcoding/mlc_02_kfold/test.py",
+    "solution": "solutions/mlc_02_kfold.py",
+    "topic": "ml-coding",
+    "track": "ml",
+    "status": "active",
+    "level": "medium"
+  },
+  {
+    "id": "mlc_03_knn",
+    "type": "pattern",
+    "title": "k nearest neighbours from scratch",
+    "readme": "tasks/mlcoding/mlc_03_knn/README.md",
+    "test": "tasks/mlcoding/mlc_03_knn/test.py",
+    "solution": "solutions/mlc_03_knn.py",
+    "topic": "ml-coding",
+    "track": "ml",
+    "status": "active",
+    "level": "medium"
+  },
+  {
+    "id": "mlc_04_kmeans",
+    "type": "pattern",
+    "title": "k-means from scratch",
+    "readme": "tasks/mlcoding/mlc_04_kmeans/README.md",
+    "test": "tasks/mlcoding/mlc_04_kmeans/test.py",
+    "solution": "solutions/mlc_04_kmeans.py",
+    "topic": "ml-coding",
+    "track": "ml",
+    "status": "active",
+    "level": "medium"
+  },
+  {
+    "id": "mlc_05_logistic",
+    "type": "pattern",
+    "title": "Logistic regression with gradient descent",
+    "readme": "tasks/mlcoding/mlc_05_logistic/README.md",
+    "test": "tasks/mlcoding/mlc_05_logistic/test.py",
+    "solution": "solutions/mlc_05_logistic.py",
+    "topic": "ml-coding",
+    "track": "ml",
+    "status": "active",
+    "level": "medium"
+  },
+  {
+    "id": "mlc_06_auc",
+    "type": "pattern",
+    "title": "ROC AUC by counting pairs",
+    "readme": "tasks/mlcoding/mlc_06_auc/README.md",
+    "test": "tasks/mlcoding/mlc_06_auc/test.py",
+    "solution": "solutions/mlc_06_auc.py",
+    "topic": "ml-coding",
+    "track": "ml",
+    "status": "active",
+    "level": "medium"
+  },
+  {
+    "id": "mlc_07_linear_regression",
+    "type": "pattern",
+    "title": "Simple linear regression, closed form",
+    "readme": "tasks/mlcoding/mlc_07_linear_regression/README.md",
+    "test": "tasks/mlcoding/mlc_07_linear_regression/test.py",
+    "solution": "solutions/mlc_07_linear_regression.py",
+    "topic": "ml-coding",
+    "track": "ml",
+    "status": "active",
+    "level": "medium"
+  }
+]

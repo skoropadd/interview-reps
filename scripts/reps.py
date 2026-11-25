@@ -16,6 +16,7 @@ progress. Standard library only, so it runs on any Python 3.9+.
 Add --json to today / progress for machine-readable output.
 """
 import argparse
+from collections import Counter
 import json
 import os
 import shutil
@@ -131,6 +132,10 @@ def is_due(task, progress, day):
     return state is None or state["due"] <= day.isoformat()
 
 
+def group(task):
+    return task.get("topic") or task.get("pattern") or task["type"]
+
+
 def pick_session(tasks, progress, day):
     by_type = {name: [t for t in tasks if t["type"] == name] for name in TYPES}
     chosen = set()
@@ -144,7 +149,17 @@ def pick_session(tasks, progress, day):
     def fresh(kind):
         """Tasks never done, in curriculum order. Theory cards: heaviest topic first."""
         pool = [t for t in by_type[kind] if t["id"] not in progress and t["id"] not in chosen]
-        return sorted(pool, key=lambda t: (-t["_weight"], t["_order"])) if kind == "theory" else pool
+        if kind == "theory":
+            return sorted(pool, key=lambda t: (-t["_weight"], t["_order"]))
+        if kind == "pattern":
+            # Rotate through the topics, so matrix, hash map, ML coding ... take turns.
+            done = Counter(group(t) for t in by_type[kind] if t["id"] in progress)
+            rank, position = {}, Counter()
+            for t in pool:
+                rank[t["id"]] = done[group(t)] + position[group(t)]
+                position[group(t)] += 1
+            return sorted(pool, key=lambda t: (rank[t["id"]], -t["_weight"], t["_order"]))
+        return pool
 
     def take(pool, count=1):
         picked = pool[:count]

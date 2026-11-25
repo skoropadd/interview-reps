@@ -516,5 +516,61 @@
     "track": "genai",
     "status": "active",
     "source": "written for this library; question idea from public interview lists (see SOURCES.md)"
+  },
+  {
+    "id": "dl_11",
+    "type": "theory",
+    "title": "Transfer learning: what is it, when does it help, and when not?",
+    "front": "Transfer learning: what is it, when does it help, and when not?",
+    "back": "Start from a model already trained on a large general dataset and adapt it to your task: either freeze it and train a new last layer, or fine-tune some or all layers with a small learning rate.\nHelps when your data is small and resembles what the model saw (images, text).\nHelps little when the domains differ a lot, or when you have plenty of data of your own. To switch from classification to regression, replace the last layer with one linear output and the loss with MSE.",
+    "tags": [
+      "dl"
+    ],
+    "topic": "dl-basics",
+    "track": "dl",
+    "status": "active",
+    "source": "written for this library; question idea from public interview lists (see SOURCES.md)"
+  },
+  {
+    "id": "dl_12",
+    "type": "theory",
+    "title": "An autoencoder: what is it, and three uses.",
+    "front": "An autoencoder: what is it, and three uses.",
+    "back": "A network trained to reproduce its own input through a narrow middle layer. The encoder compresses the input into a small vector; the decoder rebuilds the input from it. No labels are needed.\nUses: dimensionality reduction (a non-linear cousin of PCA), anomaly detection (unusual rows rebuild badly, so the reconstruction error is the score: useful for fraud), and denoising.",
+    "tags": [
+      "dl"
+    ],
+    "topic": "dl-basics",
+    "track": "dl",
+    "status": "active",
+    "source": "written for this library; question idea from public interview lists (see SOURCES.md)"
+  },
+  {
+    "id": "dl_13",
+    "type": "theory",
+    "title": "The training loss of a neural network does not go down. What do you ch",
+    "front": "The training loss of a neural network does not go down. What do you check, in order?",
+    "back": "1. The data pipeline: labels aligned with inputs, inputs scaled, no all-zero batches.\n2. Overfit one small batch. If the network cannot memorise 10 rows, the bug is in the model or the loss.\n3. The learning rate: too high bounces or gives NaN, too low looks flat. Try a few values ten times apart.\n4. The output layer and the loss match (e.g. no sigmoid before a loss that applies it again).\n5. Gradients: all zero means dead units or saturation; huge means exploding, so clip them.",
+    "tags": [
+      "dl"
+    ],
+    "topic": "dl-basics",
+    "track": "dl",
+    "status": "active",
+    "source": "written for this library; question idea from public interview lists (see SOURCES.md)"
+  },
+  {
+    "id": "dl_14",
+    "type": "theory",
+    "title": "Which hyperparameters matter most when training a neural network?",
+    "front": "Which hyperparameters matter most when training a neural network?",
+    "back": "Learning rate first: it decides whether training works at all. Then batch size (noise against speed and memory), number of epochs with early stopping, the optimiser and its weight decay, and the architecture: depth, width and dropout rate.\nTune the learning rate on a log scale. Change one thing at a time against a fixed validation set.",
+    "tags": [
+      "dl"
+    ],
+    "topic": "dl-basics",
+    "track": "dl",
+    "status": "active",
+    "source": "written for this library; question idea from public interview lists (see SOURCES.md)"
   }
 ]
