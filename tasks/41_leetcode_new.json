@@ -1,0 +1,641 @@
+[
+  {
+    "id": "lc_0867_transpose_matrix",
+    "type": "pattern",
+    "title": "867. Transpose Matrix",
+    "url": "https://leetcode.com/problems/transpose-matrix/",
+    "pattern": "matrix",
+    "level": "easy",
+    "new_on_leetcode": true
+  },
+  {
+    "id": "lc_0566_reshape_the_matrix",
+    "type": "pattern",
+    "title": "566. Reshape the Matrix",
+    "url": "https://leetcode.com/problems/reshape-the-matrix/",
+    "pattern": "matrix",
+    "level": "easy",
+    "new_on_leetcode": true
+  },
+  {
+    "id": "lc_0766_toeplitz_matrix",
+    "type": "pattern",
+    "title": "766. Toeplitz Matrix",
+    "url": "https://leetcode.com/problems/toeplitz-matrix/",
+    "pattern": "matrix",
+    "level": "easy",
+    "new_on_leetcode": true
+  },
+  {
+    "id": "lc_0463_island_perimeter",
+    "type": "pattern",
+    "title": "463. Island Perimeter",
+    "url": "https://leetcode.com/problems/island-perimeter/",
+    "pattern": "matrix",
+    "level": "easy",
+    "new_on_leetcode": true
+  },
+  {
+    "id": "lc_0661_image_smoother",
+    "type": "pattern",
+    "title": "661. Image Smoother",
+    "url": "https://leetcode.com/problems/image-smoother/",
+    "pattern": "matrix",
+    "level": "easy",
+    "new_on_leetcode": true
+  },
+  {
+    "id": "lc_2373_largest_local_values_in_a_matrix",
+    "type": "pattern",
+    "title": "2373. Largest Local Values in a Matrix",
+    "url": "https://leetcode.com/problems/largest-local-values-in-a-matrix/",
+    "pattern": "matrix",
+    "level": "easy",
+    "new_on_leetcode": true
+  },
+  {
+    "id": "lc_1380_lucky_numbers_in_a_matrix",
+    "type": "pattern",
+    "title": "1380. Lucky Numbers in a Matrix",
+    "url": "https://leetcode.com/problems/lucky-numbers-in-a-matrix/",
+    "pattern": "matrix",
+    "level": "easy",
+    "new_on_leetcode": true
+  },
+  {
+    "id": "lc_0059_spiral_matrix_ii",
+    "type": "pattern",
+    "title": "59. Spiral Matrix II",
+    "url": "https://leetcode.com/problems/spiral-matrix-ii/",
+    "pattern": "matrix",
+    "level": "medium",
+    "new_on_leetcode": true
+  },
+  {
+    "id": "lc_2482_difference_between_ones_and_zeros_in_row",
+    "type": "pattern",
+    "title": "2482. Difference Between Ones and Zeros in Row and Column",
+    "url": "https://leetcode.com/problems/difference-between-ones-and-zeros-in-row-and-column/",
+    "pattern": "matrix",
+    "level": "medium",
+    "new_on_leetcode": true
+  },
+  {
+    "id": "lc_2428_maximum_sum_of_an_hourglass",
+    "type": "pattern",
+    "title": "2428. Maximum Sum of an Hourglass",
+    "url": "https://leetcode.com/problems/maximum-sum-of-an-hourglass/",
+    "pattern": "matrix",
+    "level": "medium",
+    "new_on_leetcode": true
+  },
+  {
+    "id": "lc_0240_search_a_2d_matrix_ii",
+    "type": "pattern",
+    "title": "240. Search a 2D Matrix II",
+    "url": "https://leetcode.com/problems/search-a-2d-matrix-ii/",
+    "pattern": "matrix",
+    "level": "medium",
+    "new_on_leetcode": true
+  },
+  {
+    "id": "lc_0289_game_of_life",
+    "type": "pattern",
+    "title": "289. Game of Life",
+    "url": "https://leetcode.com/problems/game-of-life/",
+    "pattern": "matrix",
+    "level": "medium",
+    "new_on_leetcode": true
+  },
+  {
+    "id": "lc_1329_sort_the_matrix_diagonally",
+    "type": "pattern",
+    "title": "1329. Sort the Matrix Diagonally",
+    "url": "https://leetcode.com/problems/sort-the-matrix-diagonally/",
+    "pattern": "matrix",
+    "level": "medium",
+    "new_on_leetcode": true
+  },
+  {
+    "id": "lc_0840_magic_squares_in_grid",
+    "type": "pattern",
+    "title": "840. Magic Squares in Grid",
+    "url": "https://leetcode.com/problems/magic-squares-in-grid/",
+    "pattern": "matrix",
+    "level": "medium",
+    "new_on_leetcode": true
+  },
+  {
+    "id": "lc_0885_spiral_matrix_iii",
+    "type": "pattern",
+    "title": "885. Spiral Matrix III",
+    "url": "https://leetcode.com/problems/spiral-matrix-iii/",
+    "pattern": "matrix",
+    "level": "medium",
+    "new_on_leetcode": true
+  },
+  {
+    "id": "lc_2017_grid_game",
+    "type": "pattern",
+    "title": "2017. Grid Game",
+    "url": "https://leetcode.com/problems/grid-game/",
+    "pattern": "matrix",
+    "level": "medium",
+    "new_on_leetcode": true
+  },
+  {
+    "id": "lc_1706_where_will_the_ball_fall",
+    "type": "pattern",
+    "title": "1706. Where Will the Ball Fall",
+    "url": "https://leetcode.com/problems/where-will-the-ball-fall/",
+    "pattern": "matrix",
+    "level": "medium",
+    "new_on_leetcode": true
+  },
+  {
+    "id": "lc_0064_minimum_path_sum",
+    "type": "pattern",
+    "title": "64. Minimum Path Sum",
+    "url": "https://leetcode.com/problems/minimum-path-sum/",
+    "pattern": "matrix",
+    "level": "medium",
+    "new_on_leetcode": true
+  },
+  {
+    "id": "lc_0062_unique_paths",
+    "type": "pattern",
+    "title": "62. Unique Paths",
+    "url": "https://leetcode.com/problems/unique-paths/",
+    "pattern": "matrix",
+    "level": "medium",
+    "new_on_leetcode": true
+  },
+  {
+    "id": "lc_0063_unique_paths_ii",
+    "type": "pattern",
+    "title": "63. Unique Paths II",
+    "url": "https://leetcode.com/problems/unique-paths-ii/",
+    "pattern": "matrix",
+    "level": "medium",
+    "new_on_leetcode": true
+  },
+  {
+    "id": "lc_0221_maximal_square",
+    "type": "pattern",
+    "title": "221. Maximal Square",
+    "url": "https://leetcode.com/problems/maximal-square/",
+    "pattern": "matrix",
+    "level": "medium",
+    "new_on_leetcode": true
+  },
+  {
+    "id": "lc_0079_word_search",
+    "type": "pattern",
+    "title": "79. Word Search",
+    "url": "https://leetcode.com/problems/word-search/",
+    "pattern": "matrix",
+    "level": "medium",
+    "new_on_leetcode": true
+  },
+  {
+    "id": "lc_0542_01_matrix",
+    "type": "pattern",
+    "title": "542. 01 Matrix",
+    "url": "https://leetcode.com/problems/01-matrix/",
+    "pattern": "matrix",
+    "level": "medium",
+    "new_on_leetcode": true
+  },
+  {
+    "id": "lc_1905_count_sub_islands",
+    "type": "pattern",
+    "title": "1905. Count Sub Islands",
+    "url": "https://leetcode.com/problems/count-sub-islands/",
+    "pattern": "matrix",
+    "level": "medium",
+    "new_on_leetcode": true
+  },
+  {
+    "id": "lc_1020_number_of_enclaves",
+    "type": "pattern",
+    "title": "1020. Number of Enclaves",
+    "url": "https://leetcode.com/problems/number-of-enclaves/",
+    "pattern": "matrix",
+    "level": "medium",
+    "new_on_leetcode": true
+  },
+  {
+    "id": "lc_1254_number_of_closed_islands",
+    "type": "pattern",
+    "title": "1254. Number of Closed Islands",
+    "url": "https://leetcode.com/problems/number-of-closed-islands/",
+    "pattern": "matrix",
+    "level": "medium",
+    "new_on_leetcode": true
+  },
+  {
+    "id": "lc_0383_ransom_note",
+    "type": "pattern",
+    "title": "383. Ransom Note",
+    "url": "https://leetcode.com/problems/ransom-note/",
+    "pattern": "hash map",
+    "level": "easy",
+    "new_on_leetcode": true
+  },
+  {
+    "id": "lc_0205_isomorphic_strings",
+    "type": "pattern",
+    "title": "205. Isomorphic Strings",
+    "url": "https://leetcode.com/problems/isomorphic-strings/",
+    "pattern": "hash map",
+    "level": "easy",
+    "new_on_leetcode": true
+  },
+  {
+    "id": "lc_0290_word_pattern",
+    "type": "pattern",
+    "title": "290. Word Pattern",
+    "url": "https://leetcode.com/problems/word-pattern/",
+    "pattern": "hash map",
+    "level": "easy",
+    "new_on_leetcode": true
+  },
+  {
+    "id": "lc_0387_first_unique_character_in_a_string",
+    "type": "pattern",
+    "title": "387. First Unique Character in a String",
+    "url": "https://leetcode.com/problems/first-unique-character-in-a-string/",
+    "pattern": "hash map",
+    "level": "easy",
+    "new_on_leetcode": true
+  },
+  {
+    "id": "lc_1207_unique_number_of_occurrences",
+    "type": "pattern",
+    "title": "1207. Unique Number of Occurrences",
+    "url": "https://leetcode.com/problems/unique-number-of-occurrences/",
+    "pattern": "hash map",
+    "level": "easy",
+    "new_on_leetcode": true
+  },
+  {
+    "id": "lc_0451_sort_characters_by_frequency",
+    "type": "pattern",
+    "title": "451. Sort Characters by Frequency",
+    "url": "https://leetcode.com/problems/sort-characters-by-frequency/",
+    "pattern": "hash map",
+    "level": "medium",
+    "new_on_leetcode": true
+  },
+  {
+    "id": "lc_0442_find_all_duplicates_in_an_array",
+    "type": "pattern",
+    "title": "442. Find All Duplicates in an Array",
+    "url": "https://leetcode.com/problems/find-all-duplicates-in-an-array/",
+    "pattern": "hash map",
+    "level": "medium",
+    "new_on_leetcode": true
+  },
+  {
+    "id": "lc_1657_determine_if_two_strings_are_close",
+    "type": "pattern",
+    "title": "1657. Determine If Two Strings are Close",
+    "url": "https://leetcode.com/problems/determine-if-two-strings-are-close/",
+    "pattern": "hash map",
+    "level": "medium",
+    "new_on_leetcode": true
+  },
+  {
+    "id": "lc_2352_equal_row_and_column_pairs",
+    "type": "pattern",
+    "title": "2352. Equal Row and Column Pairs",
+    "url": "https://leetcode.com/problems/equal-row-and-column-pairs/",
+    "pattern": "hash map",
+    "level": "medium",
+    "new_on_leetcode": true
+  },
+  {
+    "id": "lc_2225_find_players_with_zero_or_one_losses",
+    "type": "pattern",
+    "title": "2225. Find Players with Zero or One Losses",
+    "url": "https://leetcode.com/problems/find-players-with-zero-or-one-losses/",
+    "pattern": "hash map",
+    "level": "medium",
+    "new_on_leetcode": true
+  },
+  {
+    "id": "lc_1347_minimum_number_of_steps_to_make_two_stri",
+    "type": "pattern",
+    "title": "1347. Minimum Number of Steps to Make Two Strings Anagram",
+    "url": "https://leetcode.com/problems/minimum-number-of-steps-to-make-two-strings-anagram/",
+    "pattern": "hash map",
+    "level": "medium",
+    "new_on_leetcode": true
+  },
+  {
+    "id": "lc_1282_group_the_people_given_the_group_size_th",
+    "type": "pattern",
+    "title": "1282. Group the People Given the Group Size they Belong to",
+    "url": "https://leetcode.com/problems/group-the-people-given-the-group-size-they-belong-to/",
+    "pattern": "hash map",
+    "level": "medium",
+    "new_on_leetcode": true
+  },
+  {
+    "id": "lc_0554_brick_wall",
+    "type": "pattern",
+    "title": "554. Brick Wall",
+    "url": "https://leetcode.com/problems/brick-wall/",
+    "pattern": "hash map",
+    "level": "medium",
+    "new_on_leetcode": true
+  },
+  {
+    "id": "lc_1010_pairs_of_songs_with_total_durations_divi",
+    "type": "pattern",
+    "title": "1010. Pairs of Songs with Total Durations Divisible by 60",
+    "url": "https://leetcode.com/problems/pairs-of-songs-with-total-durations-divisible-by-60/",
+    "pattern": "hash map",
+    "level": "medium",
+    "new_on_leetcode": true
+  },
+  {
+    "id": "lc_0454_4sum_ii",
+    "type": "pattern",
+    "title": "454. 4sum II",
+    "url": "https://leetcode.com/problems/4sum-ii/",
+    "pattern": "hash map",
+    "level": "medium",
+    "new_on_leetcode": true
+  },
+  {
+    "id": "lc_0535_encode_and_decode_tinyurl",
+    "type": "pattern",
+    "title": "535. Encode and Decode Tinyurl",
+    "url": "https://leetcode.com/problems/encode-and-decode-tinyurl/",
+    "pattern": "hash map",
+    "level": "medium",
+    "new_on_leetcode": true
+  },
+  {
+    "id": "lc_1396_design_underground_system",
+    "type": "pattern",
+    "title": "1396. Design Underground System",
+    "url": "https://leetcode.com/problems/design-underground-system/",
+    "pattern": "hash map",
+    "level": "medium",
+    "new_on_leetcode": true
+  },
+  {
+    "id": "lc_0981_time_based_key_value_store",
+    "type": "pattern",
+    "title": "981. Time Based Key Value Store",
+    "url": "https://leetcode.com/problems/time-based-key-value-store/",
+    "pattern": "hash map",
+    "level": "medium",
+    "new_on_leetcode": true
+  },
+  {
+    "id": "lc_0146_lru_cache",
+    "type": "pattern",
+    "title": "146. LRU Cache",
+    "url": "https://leetcode.com/problems/lru-cache/",
+    "pattern": "hash map",
+    "level": "medium",
+    "new_on_leetcode": true
+  },
+  {
+    "id": "lc_0844_backspace_string_compare",
+    "type": "pattern",
+    "title": "844. Backspace String Compare",
+    "url": "https://leetcode.com/problems/backspace-string-compare/",
+    "pattern": "two pointers",
+    "level": "easy",
+    "new_on_leetcode": true
+  },
+  {
+    "id": "lc_0763_partition_labels",
+    "type": "pattern",
+    "title": "763. Partition Labels",
+    "url": "https://leetcode.com/problems/partition-labels/",
+    "pattern": "two pointers",
+    "level": "medium",
+    "new_on_leetcode": true
+  },
+  {
+    "id": "lc_0948_bag_of_tokens",
+    "type": "pattern",
+    "title": "948. Bag of Tokens",
+    "url": "https://leetcode.com/problems/bag-of-tokens/",
+    "pattern": "two pointers",
+    "level": "medium",
+    "new_on_leetcode": true
+  },
+  {
+    "id": "lc_0986_interval_list_intersections",
+    "type": "pattern",
+    "title": "986. Interval List Intersections",
+    "url": "https://leetcode.com/problems/interval-list-intersections/",
+    "pattern": "two pointers",
+    "level": "medium",
+    "new_on_leetcode": true
+  },
+  {
+    "id": "lc_0031_next_permutation",
+    "type": "pattern",
+    "title": "31. Next Permutation",
+    "url": "https://leetcode.com/problems/next-permutation/",
+    "pattern": "two pointers",
+    "level": "medium",
+    "new_on_leetcode": true
+  },
+  {
+    "id": "lc_0904_fruit_into_baskets",
+    "type": "pattern",
+    "title": "904. Fruit Into Baskets",
+    "url": "https://leetcode.com/problems/fruit-into-baskets/",
+    "pattern": "sliding window",
+    "level": "medium",
+    "new_on_leetcode": true
+  },
+  {
+    "id": "lc_0713_subarray_product_less_than_k",
+    "type": "pattern",
+    "title": "713. Subarray Product Less Than K",
+    "url": "https://leetcode.com/problems/subarray-product-less-than-k/",
+    "pattern": "sliding window",
+    "level": "medium",
+    "new_on_leetcode": true
+  },
+  {
+    "id": "lc_1052_grumpy_bookstore_owner",
+    "type": "pattern",
+    "title": "1052. Grumpy Bookstore Owner",
+    "url": "https://leetcode.com/problems/grumpy-bookstore-owner/",
+    "pattern": "sliding window",
+    "level": "medium",
+    "new_on_leetcode": true
+  },
+  {
+    "id": "lc_1423_maximum_points_you_can_obtain_from_cards",
+    "type": "pattern",
+    "title": "1423. Maximum Points You Can Obtain from Cards",
+    "url": "https://leetcode.com/problems/maximum-points-you-can-obtain-from-cards/",
+    "pattern": "sliding window",
+    "level": "medium",
+    "new_on_leetcode": true
+  },
+  {
+    "id": "lc_1208_get_equal_substrings_within_budget",
+    "type": "pattern",
+    "title": "1208. Get Equal Substrings Within Budget",
+    "url": "https://leetcode.com/problems/get-equal-substrings-within-budget/",
+    "pattern": "sliding window",
+    "level": "medium",
+    "new_on_leetcode": true
+  },
+  {
+    "id": "lc_1695_maximum_erasure_value",
+    "type": "pattern",
+    "title": "1695. Maximum Erasure Value",
+    "url": "https://leetcode.com/problems/maximum-erasure-value/",
+    "pattern": "sliding window",
+    "level": "medium",
+    "new_on_leetcode": true
+  },
+  {
+    "id": "lc_2090_k_radius_subarray_averages",
+    "type": "pattern",
+    "title": "2090. K Radius Subarray Averages",
+    "url": "https://leetcode.com/problems/k-radius-subarray-averages/",
+    "pattern": "sliding window",
+    "level": "medium",
+    "new_on_leetcode": true
+  },
+  {
+    "id": "lc_1838_frequency_of_the_most_frequent_element",
+    "type": "pattern",
+    "title": "1838. Frequency of the Most Frequent Element",
+    "url": "https://leetcode.com/problems/frequency-of-the-most-frequent-element/",
+    "pattern": "sliding window",
+    "level": "medium",
+    "new_on_leetcode": true
+  },
+  {
+    "id": "lc_1658_minimum_operations_to_reduce_x_to_zero",
+    "type": "pattern",
+    "title": "1658. Minimum Operations to Reduce X to Zero",
+    "url": "https://leetcode.com/problems/minimum-operations-to-reduce-x-to-zero/",
+    "pattern": "sliding window",
+    "level": "medium",
+    "new_on_leetcode": true
+  },
+  {
+    "id": "lc_1314_matrix_block_sum",
+    "type": "pattern",
+    "title": "1314. Matrix Block Sum",
+    "url": "https://leetcode.com/problems/matrix-block-sum/",
+    "pattern": "prefix sums",
+    "level": "medium",
+    "new_on_leetcode": true
+  },
+  {
+    "id": "lc_1109_corporate_flight_bookings",
+    "type": "pattern",
+    "title": "1109. Corporate Flight Bookings",
+    "url": "https://leetcode.com/problems/corporate-flight-bookings/",
+    "pattern": "prefix sums",
+    "level": "medium",
+    "new_on_leetcode": true
+  },
+  {
+    "id": "lc_1094_car_pooling",
+    "type": "pattern",
+    "title": "1094. Car Pooling",
+    "url": "https://leetcode.com/problems/car-pooling/",
+    "pattern": "prefix sums",
+    "level": "medium",
+    "new_on_leetcode": true
+  },
+  {
+    "id": "lc_1248_count_number_of_nice_subarrays",
+    "type": "pattern",
+    "title": "1248. Count Number of Nice Subarrays",
+    "url": "https://leetcode.com/problems/count-number-of-nice-subarrays/",
+    "pattern": "prefix sums",
+    "level": "medium",
+    "new_on_leetcode": true
+  },
+  {
+    "id": "lc_0495_teemo_attacking",
+    "type": "pattern",
+    "title": "495. Teemo Attacking",
+    "url": "https://leetcode.com/problems/teemo-attacking/",
+    "pattern": "intervals",
+    "level": "easy",
+    "new_on_leetcode": true
+  },
+  {
+    "id": "lc_0729_my_calendar_i",
+    "type": "pattern",
+    "title": "729. My Calendar I",
+    "url": "https://leetcode.com/problems/my-calendar-i/",
+    "pattern": "intervals",
+    "level": "medium",
+    "new_on_leetcode": true
+  },
+  {
+    "id": "lc_1288_remove_covered_intervals",
+    "type": "pattern",
+    "title": "1288. Remove Covered Intervals",
+    "url": "https://leetcode.com/problems/remove-covered-intervals/",
+    "pattern": "intervals",
+    "level": "medium",
+    "new_on_leetcode": true
+  },
+  {
+    "id": "lc_3169_count_days_without_meetings",
+    "type": "pattern",
+    "title": "3169. Count Days Without Meetings",
+    "url": "https://leetcode.com/problems/count-days-without-meetings/",
+    "pattern": "intervals",
+    "level": "medium",
+    "new_on_leetcode": true
+  },
+  {
+    "id": "lc_0731_my_calendar_ii",
+    "type": "pattern",
+    "title": "731. My Calendar II",
+    "url": "https://leetcode.com/problems/my-calendar-ii/",
+    "pattern": "intervals",
+    "level": "medium",
+    "new_on_leetcode": true
+  },
+  {
+    "id": "lc_1024_video_stitching",
+    "type": "pattern",
+    "title": "1024. Video Stitching",
+    "url": "https://leetcode.com/problems/video-stitching/",
+    "pattern": "intervals",
+    "level": "medium",
+    "new_on_leetcode": true
+  },
+  {
+    "id": "lc_2406_divide_intervals_into_minimum_number_of_",
+    "type": "pattern",
+    "title": "2406. Divide Intervals Into Minimum Number of Groups",
+    "url": "https://leetcode.com/problems/divide-intervals-into-minimum-number-of-groups/",
+    "pattern": "intervals",
+    "level": "medium",
+    "new_on_leetcode": true
+  },
+  {
+    "id": "lc_1353_maximum_number_of_events_that_can_be_att",
+    "type": "pattern",
+    "title": "1353. Maximum Number of Events that Can be Attended",
+    "url": "https://leetcode.com/problems/maximum-number-of-events-that-can-be-attended/",
+    "pattern": "intervals",
+    "level": "medium",
+    "new_on_leetcode": true
+  }
+]

@@ -7,7 +7,8 @@
     "test": "tasks/patterns/pat_00_subgrid_sum/test.py",
     "solution": "solutions/pat_00_subgrid_sum.py",
     "pattern": "matrix",
-    "level": "medium"
+    "level": "medium",
+    "priority": 1
   },
   {
     "id": "pat_01_two_sum",
@@ -15,7 +16,8 @@
     "title": "Two Sum",
     "url": "https://leetcode.com/problems/two-sum/",
     "pattern": "hash map",
-    "level": "easy"
+    "level": "easy",
+    "solved_before": true
   },
   {
     "id": "pat_02_valid_palindrome",
@@ -23,7 +25,8 @@
     "title": "Valid Palindrome",
     "url": "https://leetcode.com/problems/valid-palindrome/",
     "pattern": "two pointers",
-    "level": "easy"
+    "level": "easy",
+    "solved_before": true
   },
   {
     "id": "pat_03_best_time_to_buy_and_sell_stock",
@@ -31,7 +34,8 @@
     "title": "Best Time to Buy and Sell Stock",
     "url": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/",
     "pattern": "sliding window",
-    "level": "easy"
+    "level": "easy",
+    "solved_before": true
   },
   {
     "id": "pat_04_spiral_matrix",
@@ -39,7 +43,8 @@
     "title": "Spiral Matrix",
     "url": "https://leetcode.com/problems/spiral-matrix/",
     "pattern": "matrix",
-    "level": "medium"
+    "level": "medium",
+    "new_on_leetcode": true
   },
   {
     "id": "pat_05_merge_intervals",
@@ -47,7 +52,8 @@
     "title": "Merge Intervals",
     "url": "https://leetcode.com/problems/merge-intervals/",
     "pattern": "intervals",
-    "level": "medium"
+    "level": "medium",
+    "new_on_leetcode": true
   },
   {
     "id": "pat_06_group_anagrams",
@@ -55,7 +61,8 @@
     "title": "Group Anagrams",
     "url": "https://leetcode.com/problems/group-anagrams/",
     "pattern": "hash map",
-    "level": "medium"
+    "level": "medium",
+    "solved_before": true
   },
   {
     "id": "pat_07_two_sum_ii_input_array_is_sorted",
@@ -63,7 +70,8 @@
     "title": "Two Sum II (sorted input)",
     "url": "https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/",
     "pattern": "two pointers",
-    "level": "medium"
+    "level": "medium",
+    "solved_before": true
   },
   {
     "id": "pat_08_longest_substring_without_repeating_characters",
@@ -71,7 +79,8 @@
     "title": "Longest Substring Without Repeating Characters",
     "url": "https://leetcode.com/problems/longest-substring-without-repeating-characters/",
     "pattern": "sliding window",
-    "level": "medium"
+    "level": "medium",
+    "solved_before": true
   },
   {
     "id": "pat_09_set_matrix_zeroes",
@@ -79,7 +88,8 @@
     "title": "Set Matrix Zeroes",
     "url": "https://leetcode.com/problems/set-matrix-zeroes/",
     "pattern": "matrix",
-    "level": "medium"
+    "level": "medium",
+    "solved_before": true
   },
   {
     "id": "pat_10_insert_interval",
@@ -87,7 +97,8 @@
     "title": "Insert Interval",
     "url": "https://leetcode.com/problems/insert-interval/",
     "pattern": "intervals",
-    "level": "medium"
+    "level": "medium",
+    "solved_before": true
   },
   {
     "id": "pat_11_top_k_frequent_elements",
@@ -95,7 +106,8 @@
     "title": "Top K Frequent Elements",
     "url": "https://leetcode.com/problems/top-k-frequent-elements/",
     "pattern": "hash map",
-    "level": "medium"
+    "level": "medium",
+    "solved_before": true
   },
   {
     "id": "pat_12_container_with_most_water",
@@ -103,7 +115,8 @@
     "title": "Container With Most Water",
     "url": "https://leetcode.com/problems/container-with-most-water/",
     "pattern": "two pointers",
-    "level": "medium"
+    "level": "medium",
+    "solved_before": true
   },
   {
     "id": "pat_13_subarray_sum_equals_k",
@@ -111,7 +124,8 @@
     "title": "Subarray Sum Equals K",
     "url": "https://leetcode.com/problems/subarray-sum-equals-k/",
     "pattern": "prefix sums",
-    "level": "medium"
+    "level": "medium",
+    "solved_before": true
   },
   {
     "id": "pat_14_rotate_image",
@@ -119,7 +133,8 @@
     "title": "Rotate Image",
     "url": "https://leetcode.com/problems/rotate-image/",
     "pattern": "matrix",
-    "level": "medium"
+    "level": "medium",
+    "new_on_leetcode": true
   },
   {
     "id": "pat_15_non_overlapping_intervals",
@@ -127,6 +142,7 @@
     "title": "Non-overlapping Intervals",
     "url": "https://leetcode.com/problems/non-overlapping-intervals/",
     "pattern": "intervals",
-    "level": "medium"
+    "level": "medium",
+    "new_on_leetcode": true
   }
 ]

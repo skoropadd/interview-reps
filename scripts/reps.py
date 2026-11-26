@@ -167,7 +167,8 @@ def pick_session(tasks, progress, day):
             # Rotate through the topics, so matrix, hash map, ML coding ... take turns.
             done = Counter(group(t) for t in by_type[kind] if t["id"] in progress)
             rank, position = {}, Counter()
-            for t in pool:
+            # Within a topic: pinned tasks, then problems not solved before, then redos of old ones.
+            for t in sorted(pool, key=lambda t: (-t.get("priority", 0), t.get("solved_before", False), t["_order"])):
                 rank[t["id"]] = done[group(t)] + position[group(t)]
                 position[group(t)] += 1
             return sorted(pool, key=lambda t: (rank[t["id"]], -t["_weight"], t["_order"]))
