@@ -277,7 +277,16 @@ def progress_report(tasks, progress, log, day):
         mastered = [t for t in seen if progress[t["id"]]["box"] >= MASTERED_BOX]
         pillars[name] = {"total": len(group), "seen": len(seen), "mastered": len(mastered)}
     last_patterns = [entry["result"] for entry in log if entry["type"] == "pattern"][-10:]
+    goal = load_json(FOCUS, {}).get("settings", {})
+    leetcode_goal = None
+    if "leetcode_target" in goal:
+        fresh_ids = {t["id"] for t in tasks if t.get("new_on_leetcode")}
+        solved = {entry["id"] for entry in log if entry["id"] in fresh_ids and entry["result"] in ("clean", "errors")}
+        base = int(goal.get("leetcode_baseline", 0))
+        leetcode_goal = {"baseline": base, "solved_here": len(solved), "total": base + len(solved),
+                         "target": int(goal["leetcode_target"])}
     return {
+        "leetcode_goal": leetcode_goal,
         "date": day.isoformat(),
         "streak": current,
         "longest_streak": longest,
@@ -295,6 +304,10 @@ def print_progress(report):
     for name, numbers in report["pillars"].items():
         print(f"  {name:<9}{bar(numbers['mastered'], numbers['total'])} "
               f"{numbers['mastered']}/{numbers['total']} mastered, {numbers['seen']} seen")
+    goal = report.get("leetcode_goal")
+    if goal:
+        print(f"  LeetCode {bar(goal['total'], goal['target'])} {goal['total']}/{goal['target']} "
+              f"({goal['baseline']} before + {goal['solved_here']} here)")
     ready = report["pattern_readiness"]
     print(f"  Problem readiness: {ready['clean']}/{ready['of']} of the last pattern problems clean "
           f"(target {ready['target']} of 10)")
@@ -475,8 +488,8 @@ def cmd_triage(args):
 
 
 def cmd_set(args):
-    if args.name not in ("theory_per_day", "theory_reviews"):
-        sys.exit("Settings: theory_per_day, theory_reviews")
+    if args.name not in ("theory_per_day", "theory_reviews", "leetcode_baseline", "leetcode_target"):
+        sys.exit("Settings: theory_per_day, theory_reviews, leetcode_baseline, leetcode_target")
     if not args.value.isdigit() or int(args.value) < 1:
         sys.exit("The value must be a whole number, 1 or more.")
     focus = load_json(FOCUS, {})

@@ -27,6 +27,10 @@ Say what was good in one line. Don't pad.
 
 For problems solved on LeetCode or NeetCode, the learner pastes the code and says whether it passed. Review it the same way.
 
+## Problems that count toward a LeetCode goal
+
+A task with `"new_on_leetcode": true` is one the learner has not solved on LeetCode before. It counts toward their goal only when it was accepted on the site AND solved under the conditions: by hand, no autocomplete, no solution opened first. If they opened the solution, record `failed`; it comes back and can count then.
+
 ## Proposing a result
 
 - `clean`: correct first time, no hints.
